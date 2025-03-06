@@ -32,9 +32,6 @@ body{
     margin: 20px 0;
 }
 
-.container span{
-    font-size: 12px;
-}
 
 .container a{
     color: #333;
@@ -61,7 +58,7 @@ body{
     border-color: #fff;
 }
 
-.container form {
+.container form{
     background-color: #fff;
     display: flex;
     align-items: center;
