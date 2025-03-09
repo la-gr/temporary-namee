@@ -4,17 +4,34 @@
   <meta charset="UTF-8">
   <title>GAME</title>
   <style>
-      body {
+      #timer{
+          position: fixed;
+          top: 10px;
+          left: 50%;
+          z-index: 999;
+      }
+      #want{
+          position: fixed;
+      }
+      #bg{
+          position: absolute;
+          width: 3000px;
+          height: 2000px;
           background-image: url("../resources/backgorund.png");
-          background-size: cover;
+          background-size: max(3000px, 2000px);
           background-repeat: no-repeat;
+          z-index: -1;
       }
   </style>
 </head>
 <body>
 
-<script src="main.js"></script>
 <img id="want" src = "../resources/wanted1.png" alt="poop" width="200" height="280">
+<div id="timer">
+  <p id="timerDis"></p>
+</div>
+<div id="bg"></div>
+<script src="main.js"></script>
 
 </body>
 </html>
