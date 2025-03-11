@@ -8,17 +8,18 @@
           position: fixed;
           top: 10px;
           left: 50%;
-          z-index: 999;
+          z-index: 8;
       }
       #want{
           position: fixed;
+          z-index: 999;
       }
       #bg{
           position: absolute;
-          width: 3000px;
-          height: 2000px;
-          background-image: url("../resources/backgorund.png");
-          background-size: max(3000px, 2000px);
+          width: 2995px;
+          height: 1685px;
+          background-image: url("../resources/bgEx.png");
+          background-size: max(2995px, 1685px);
           background-repeat: no-repeat;
           z-index: -1;
       }
@@ -30,7 +31,9 @@
 <div id="timer">
   <p id="timerDis"></p>
 </div>
-<div id="bg"></div>
+<div id="bg">
+  <div id="ppl"></div>;
+</div>
 <script src="main.js"></script>
 
 </body>

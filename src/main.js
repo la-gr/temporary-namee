@@ -12,13 +12,13 @@ function pplSelect(r) {
 }
 
 function makePpl(a, w, h, l, t, mon){
-  //create div container
-  let div = document.createElement("div");
-  div.classList.add("one");
-  div.style.position = "absolute";
-  div.style.left = l;
-  div.style.top = t;
+  //get the ppl div
+  let div = document.getElementById("ppl");
+  //make a button (the person)
   let button = document.createElement("button");
+  button.style.position = "absolute";
+  button.style.left = l;
+  button.style.top = t;
   button.onclick= function() {
     pplSelect(a);
     money += mon;
@@ -32,7 +32,7 @@ function makePpl(a, w, h, l, t, mon){
 
   button.appendChild(image); //add image to button
   div.appendChild(button); //add button to the div
-  document.body.appendChild(div); //add div to html/body
+  //document.body.appendChild(div); //add div to html/body
 }
 
 //timer at the top of the screen
@@ -52,49 +52,48 @@ function timer(m,s){
       sec = 59;
       min--;
     }
-  }, 1000);
+  }, 1000); //loops every 1 second
 }
 
-// Make the DIV element draggable:
+//make the background draggable
 dragElement(document.getElementById("bg"));
-
 function dragElement(elmnt) {
-  var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
-  /*if (document.getElementById(elmnt.id + "header")) {
-    // if present, the header is where you move the DIV from:
-    document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
-  } else {
-    // otherwise, move the DIV from anywhere inside the DIV:
-    elmnt.onmousedown = dragMouseDown;
-  }*/
+  let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
-
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
-    // get the mouse cursor position at startup:
+    //get the mouse cursor position at startup:
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    // call a function whenever the cursor moves:
+    //call a function whenever the cursor moves:
     document.onmousemove = elementDrag;
   }
-
   function elementDrag(e) {
     e = e || window.event;
     e.preventDefault();
-    // calculate the new cursor position:
+
+    //get the max x and y values in order to restrict how far the bg can be dragged (only to the end of the image)
+    let winW = document.documentElement.clientWidth || document.body.clientWidth;
+    let winH = document.documentElement.clientHeight || document.body.clientHeight;
+    let maxX = winW - elmnt.offsetWidth - 1;
+    let maxY = winH - elmnt.offsetHeight - 1;
+    //calculate the new cursor position
     pos1 = pos3 - e.clientX;
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
-    // set the element's new position:
-    elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
-    elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    //set the bg's new position
+    if ((elmnt.offsetTop - pos2) >= maxY && (elmnt.offsetTop - pos2) <= 0) {
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+    }
+    if ((elmnt.offsetLeft - pos1) >= maxX && (elmnt.offsetLeft - pos1) <= 0) {
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
   }
-
   function closeDragElement() {
-    // stop moving when mouse button is released:
+    //stop moving when mouse button is released:
     document.onmouseup = null;
     document.onmousemove = null;
   }
