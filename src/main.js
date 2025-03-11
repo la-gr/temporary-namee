@@ -3,6 +3,15 @@ const want = ["../resources/wanted2.png", "../resources/wanted3.png"]; // array 
 const ppl = ["../resources/preson.png", "../resources/ppl2.png", "../resources/ppl3.png"];
 let money = 0;
 
+let mainG = document.getElementById("mainGame");
+mainG.style.display="none";
+let loadingScreen = document.querySelector(".loading");
+window.addEventListener('load', function() {
+  mainG.style.display="block";
+  loadingScreen.style.display = 'none';
+})
+
+
 // the person is found
 function pplSelect(r) {
   if (r === n) {

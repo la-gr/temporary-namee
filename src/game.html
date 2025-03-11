@@ -12,7 +12,7 @@
       }
       #want{
           position: fixed;
-          z-index: 999;
+          z-index: 10;
       }
       #bg{
           position: absolute;
@@ -23,17 +23,29 @@
           background-repeat: no-repeat;
           z-index: -1;
       }
+      .loading{
+          position: absolute;
+          background-image: url("../resources/loadi2.png");
+          background-size: auto 100%;
+          background-repeat: no-repeat;
+          width: 1920px;
+          height: 1080px;
+          z-index:100;
+      }
   </style>
 </head>
 <body>
 
-<img id="want" src = "../resources/wanted1.png" alt="poop" width="200" height="280">
-<div id="timer">
-  <p id="timerDis"></p>
+<div id="mainGame">
+  <img id="want" src = "../resources/wanted1.png" alt="poop" width="200" height="280">
+  <div id="timer">
+    <p id="timerDis"></p>
+  </div>
+  <div id="bg">
+    <div id="ppl"></div>;
+  </div>
 </div>
-<div id="bg">
-  <div id="ppl"></div>;
-</div>
+<div class="loading"></div>;
 <script src="main.js"></script>
 
 </body>
