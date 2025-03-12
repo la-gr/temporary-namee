@@ -11,6 +11,22 @@ window.addEventListener('load', function() {
   loadingScreen.style.display = 'none';
 })
 
+//this goes on the map selection screen------------------
+let talk = document.getElementById("talk");
+let talkBut = document.getElementById("talkBut");//would be replaced by map select button
+let bgMusic = document.getElementById("bgMusic");
+talkBut.addEventListener("click", () => {
+  talk.play();
+  bgMusic.play();
+})
+//-------------------------------------------------------
+
+let cowboy = document.getElementById("cowboy");
+let ok = document.getElementById("ok");
+ok.addEventListener("click", () => {
+  cowboy.style.display="none";
+  talk.pause();
+})
 
 // the person is found
 function pplSelect(r) {

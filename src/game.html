@@ -23,6 +23,29 @@
           background-repeat: no-repeat;
           z-index: -1;
       }
+      #cowboy{
+          position: fixed;
+          z-index: 1;
+          width: 600px;
+          height: 200px;
+          background-color: white;
+          top: 70%;
+          left: 400px;
+      }
+      #text{
+          position: absolute;
+          top: 10px;
+          left: 250px;
+      }
+      #catTalk{
+          position: absolute;
+          top: 30px;
+      }
+      #ok{
+          position: absolute;
+          top: 80%;
+          left: 80%;
+      }
       .loading{
           position: absolute;
           background-image: url("../resources/loadi2.png");
@@ -37,12 +60,22 @@
 <body>
 
 <div id="mainGame">
-  <img id="want" src = "../resources/wanted1.png" alt="poop" width="200" height="280">
+  <img id="want" src = "../resources/wanted1.png" alt="want" width="200" height="280">
   <div id="timer">
     <p id="timerDis"></p>
   </div>
   <div id="bg">
     <div id="ppl"></div>;
+  </div>
+  <div id="cowboy">
+    <img id="catTalk" src = "../resources/catTalkTemp.gif" alt="catTalk" width="200" height="100">
+    <p id="text">hello this is how you play the game blah blah blah wow so cool</p>
+    <button id="ok">OK</button>
+    <!-- this goes on the map selection -->
+    <button id="talkBut">hello</button>; <!-- this would be the map select button -->
+    <audio id="talk" src="../resources/talkTemp.mp3" style="display: none;" ></audio>
+    <audio id="bgMusic" src="../resources/tempSong.mp3" style="display: none;" loop></audio>
+    <!--  -->
   </div>
 </div>
 <div class="loading"></div>;
