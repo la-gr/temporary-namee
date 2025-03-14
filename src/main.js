@@ -1,25 +1,35 @@
 let n = 0;
-const want = ["../resources/wanted2.png", "../resources/wanted3.png"]; // array of people wanted posters
 const ppl = ["../resources/preson.png", "../resources/ppl2.png", "../resources/ppl3.png"];
 let money = 0;
 
+let confirm = document.getElementById("confirmation");
 let mainG = document.getElementById("mainGame");
+confirm.style.display="none";
 mainG.style.display="none";
 let loadingScreen = document.querySelector(".loading");
 window.addEventListener('load', function() {
-  mainG.style.display="block";
+  confirm.style.display="block";
   loadingScreen.style.display = 'none';
 })
 
-//this goes on the map selection screen------------------
+// confirmation screen (star playing the selected map or go back)
 let talk = document.getElementById("talk");
-let talkBut = document.getElementById("talkBut");//would be replaced by map select button
 let bgMusic = document.getElementById("bgMusic");
-talkBut.addEventListener("click", () => {
+let startBut = document.getElementById("start");
+let backBut = document.getElementById("back");
+//user clicks start
+startBut.addEventListener("click", () => {
+  //voice message and background music play
   talk.play();
   bgMusic.play();
+  //game screen appears
+  mainG.style.display = "block";
+  confirm.style.display = "none";
 })
-//-------------------------------------------------------
+//user clicks back
+backBut.addEventListener("click", () => {
+  window.location.href = "map.html";
+})
 
 let cowboy = document.getElementById("cowboy");
 let ok = document.getElementById("ok");
@@ -28,15 +38,17 @@ ok.addEventListener("click", () => {
   talk.pause();
 })
 
+
 // the person is found
-function pplSelect(r) {
+function pplSelect(r, mon) {
   if (r === n) {
-    document.getElementById("want").src = want[n];
+    document.getElementById("want").src = ppl[n+1];
+    document.getElementById("dolar").innerHTML = "$"+mon+" REWARD";
     n++;
   }
 }
 
-function makePpl(a, w, h, l, t, mon){
+function makePpl(a, w, h, l, t, mon, nextMon){
   //get the ppl div
   let div = document.getElementById("ppl");
   //make a button (the person)
@@ -45,8 +57,13 @@ function makePpl(a, w, h, l, t, mon){
   button.style.left = l;
   button.style.top = t;
   button.onclick= function() {
-    pplSelect(a);
-    money += mon;
+    if (nextMon === 0){
+      window.location.href = "leaderboard.html";
+    }
+    else {
+      pplSelect(a, nextMon);
+      money += mon; //add the money earned from finding the person to the total money earned
+    }
   }
   //create image
   let image = document.createElement("img");
@@ -54,10 +71,8 @@ function makePpl(a, w, h, l, t, mon){
   image.alt = "person";
   image.width = w;
   image.height = h;
-
   button.appendChild(image); //add image to button
   div.appendChild(button); //add button to the div
-  //document.body.appendChild(div); //add div to html/body
 }
 
 //timer at the top of the screen
@@ -73,6 +88,7 @@ function timer(m,s){
     sec--;
     if (sec < 0 && min<0) {
       clearInterval(timer);
+      window.location.href = "leaderboard.html";
     } else if (sec < 0){
       sec = 59;
       min--;
@@ -82,6 +98,7 @@ function timer(m,s){
 
 //make the background draggable
 dragElement(document.getElementById("bg"));
+document.addEventListener("wheel", (e) => e.preventDefault(), { passive: false }); //prevents scrolling
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
   elmnt.onmousedown = dragMouseDown;
@@ -109,6 +126,8 @@ function dragElement(elmnt) {
     pos2 = pos4 - e.clientY;
     pos3 = e.clientX;
     pos4 = e.clientY;
+
+    console.log(elmnt.offsetTop, pos2);
     //set the bg's new position
     if ((elmnt.offsetTop - pos2) >= maxY && (elmnt.offsetTop - pos2) <= 0) {
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
@@ -127,6 +146,7 @@ function dragElement(elmnt) {
 
 timer(5,0o00);
 
-makePpl(0, 20, 50, "500px", "400px", 2);
-makePpl(1, 20, 50, "800px", "300px", 4);
-makePpl(2, 20, 50, "700px", "200px", 6);
+document.getElementById("dolar").innerHTML = "$2 REWARD";
+makePpl(0, 20, 50, "500px", "400px", 2, 4);
+makePpl(1, 20, 50, "800px", "300px", 4, 6);
+makePpl(2, 20, 50, "700px", "200px", 6, 0);
