@@ -11,13 +11,17 @@
     crossorigin="anonymous"
     referrerpolicy="no-referrer"
   />
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Mansalva&display=swap" rel="stylesheet">
+
   <title>Login Page</title>
 </head>
 <body>
-<h1 id = 'title'> GAME TITLE </h1>
+<p id = welcome>Welcome to...</p>
+<button class = 'idle' id = 'titlebtn'> GAME TITLE </button>
+<div id="overlay"></div>
 <div class="container" id="container">
   <div class="sign-up">
     <form>
@@ -27,7 +31,7 @@
         <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
       </div>
-      <span>or use email for registeration</span>
+      <span>or use username for registration</span>
       <input type="text" placeholder="Name" required />
       <input type="text" placeholder="Username" required />
       <input type="password" placeholder="Password" required />
@@ -42,7 +46,7 @@
         <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
         <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
       </div>
-      <span>or use email password</span>
+      <span>or use username and password</span>
       <input type="text" placeholder="Username" required />
       <input type="password" placeholder="Password" required />
       <button>Sign In</button>
@@ -60,6 +64,7 @@
         <p>If you don't have an account</p>
         <button class="hidden" id="register">Sign Up</button>
       </div>
+    </div>
     </div>
   </div>
 </div>

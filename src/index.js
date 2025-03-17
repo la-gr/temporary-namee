@@ -1,6 +1,9 @@
 const container = document.getElementById("container");
 const registerbtn = document.getElementById("register");
 const loginbtn = document.getElementById("login");
+const titlebtn = document.getElementById("titlebtn");
+const welcomemsg = document.getElementById("welcome");
+const overlay = document.getElementById('overlay');
 
 registerbtn.addEventListener("click", () => {
   container.classList.add("active");
@@ -9,6 +12,24 @@ registerbtn.addEventListener("click", () => {
 loginbtn.addEventListener("click", () => {
   container.classList.remove("active");
 });
+
+titlebtn.addEventListener("click", function() {
+  titlebtn.classList.remove("idle");
+  titlebtn.classList.add("active");
+  titlebtn.disabled = true; // Make the button unclickable
+
+  container.classList.add("show");
+  welcomemsg.classList.add("hide");
+  overlay.style.display = 'block';
+});
+
+// container.style.display ="none";
+//
+// function openTitle() {
+//   titlebtn.style.display = "block";
+// }
+//
+// titlebtn.addEventListener('click', openTitle);
 
 function onSignIn(googleUser) {
   const profile = googleUser.getBasicProfile();
