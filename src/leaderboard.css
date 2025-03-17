@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+    font-family: "Mansalva", sans-serif;
+}
+
+.mansalva-regular {
+    font-family: "Mansalva", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    text-align: center;
+}
+
+table{
+    margin: 20px auto;
+    border-collapse: collapse;
+    border-color: black;
+}
+
+th {
+    display: none;
+}

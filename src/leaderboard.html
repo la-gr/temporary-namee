@@ -2,28 +2,51 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Leaderboard</title>
+  <link rel="stylesheet" href="leaderboard.css">
 </head>
 
-<script>
-  function myFunction() {
-    var score = 10;
-    document.getElementById("score").innerHTML = score;
-  }
-</script>
+<!--<script>-->
+<!--  function myFunction() {-->
+<!--    var score = 10;-->
+<!--    document.getElementById("score").innerHTML = score;-->
+<!--  }-->
+<!--</script>-->
 
-<style>
-.container {
+<!--<style>-->
+<!--.container {-->
 
-}
-.user {
+<!--}-->
+<!--.user {-->
 
-}
-</style>
+<!--}-->
+<!--</style>-->
 
 <body>
-<h1>Your Score</h1>
-<h2><span id= "score"></span></h2>
+<section class="score">
+  <h1>YOUR SCORE</h1>
+  <h2>score</h2>
+<!--  <h2><span id= "score"></span></h2>-->
+</section>
+
+<section class="ranking">
+  <h1>LEADERBOARD</h1>
+  <table>
+    <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+    </thead>
+    <tbody id="leaderboard">
+
+    </tbody>
+  </table>
+</section>
+
+<script src="leaderboard.js"></script>
 
 </body>
 </html>
