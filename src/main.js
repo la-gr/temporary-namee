@@ -1,24 +1,90 @@
-let n = 0;
-const ppl = ["../resources/preson.png", "../resources/ppl2.png", "../resources/ppl3.png"];
-let money = 0;
-
+let n = 0; //used to make sure the user can only click on the correct person
+let money = 0; //amount of money the user has earned this round
+//putting all the html elements into variables
+let coins = document.getElementById("coins");
 let confirm = document.getElementById("confirmation");
 let mainG = document.getElementById("mainGame");
-confirm.style.display="none";
-mainG.style.display="none";
-let loadingScreen = document.querySelector(".loading");
-window.addEventListener('load', function() {
-  confirm.style.display="block";
-  loadingScreen.style.display = 'none';
-})
-
-// confirmation screen (star playing the selected map or go back)
 let talk = document.getElementById("talk");
 let bgMusic = document.getElementById("bgMusic");
 let startBut = document.getElementById("start");
 let backBut = document.getElementById("back");
-//user clicks start
-startBut.addEventListener("click", () => {
+let cowboy = document.getElementById("cowboy");
+let ok = document.getElementById("ok");
+let time = document.getElementById("timer");
+let bg = document.getElementById("bg");
+let poster = document.getElementById("poster");
+let catTalk = document.getElementById("catTalk");
+
+let images = [];
+import {getAlienImages} from "./map.js";
+const pam = sessionStorage.getItem("pam");
+if (pam === "1") {
+  images = getAlienImages();
+}
+
+/*
+let ppl = [images[4],images[5],images[6]]; //images of people
+confirm.style.display="none";
+mainG.style.display="none";
+
+let loadingScreen = document.querySelector(".loading");
+window.addEventListener('load', function() {
+  time.style.backgroundImage = "url("+images[0]+")";
+  coins.style.backgroundImage = "url("+images[0]+")";
+  bg.style.backgroundImage = "url("+images[1]+")";
+  poster.style.backgroundImage = "url("+images[2]+")";
+  confirm.style.backgroundImage = "url("+images[3]+")";
+
+  talk.src = images[7];
+  bgMusic.src = images[8];
+  catTalk.src = images[9];
+  confirm.style.display="block";
+  loadingScreen.style.display = 'none';
+})*/
+
+let ppl =[images[4], images[5], images[6]] //Images of people
+let loadingScreen = document.querySelector(".loading");
+
+// Preload images before setting styles
+function preloadImages(urls, callback) {
+  let loaded = 0;
+  console.log("loaded:"+loaded);
+  let total = urls.length;
+
+  urls.forEach((url, index) => {
+    let img = new Image();
+    img.src = url;
+    img.onload = () => {
+      loaded++;
+      if (loaded === total) callback(); // Call callback when all images are loaded
+    };
+  });
+}
+
+// List of images to preload
+const imagesToPreload = [
+  images[0], images[1], images[2], images[3],
+  images[4], images[5], images[6], images[9]
+];
+
+// Apply styles **before** hiding the loading screen
+preloadImages(imagesToPreload, function() {
+  time.style.backgroundImage = "url(" + images[0] + ")";
+  coins.style.backgroundImage = "url(" + images[0] + ")";
+  bg.style.backgroundImage = "url(" + images[1] + ")";
+  poster.style.backgroundImage = "url(" + images[2] + ")";
+  confirm.style.backgroundImage = "url(" + images[3] + ")";
+  catTalk.src = images[9];
+  // Hide loading screen and show content
+  loadingScreen.style.display = "none";
+  confirm.style.display = "block";
+});
+
+talk.src = images[7];
+bgMusic.src = images[8];
+
+// confirmation screen (start playing the selected map or go back)
+startBut.addEventListener("click", () => { //user clicks start
   //voice message and background music play
   talk.play();
   bgMusic.play();
@@ -31,11 +97,10 @@ backBut.addEventListener("click", () => {
   window.location.href = "map.html";
 })
 
-let cowboy = document.getElementById("cowboy");
-let ok = document.getElementById("ok");
+//the 'ok' button is clicked on the cowboy talking
 ok.addEventListener("click", () => {
-  cowboy.style.display="none";
-  talk.pause();
+  cowboy.style.display="none"; //the block of the cowboy+text disappears
+  talk.pause(); //stops the talking
 })
 
 
@@ -63,6 +128,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     else {
       pplSelect(a, nextMon);
       money += mon; //add the money earned from finding the person to the total money earned
+      coins.innerHTML = "Coins: "+money;
     }
   }
   //create image
@@ -105,11 +171,11 @@ function dragElement(elmnt) {
   function dragMouseDown(e) {
     e = e || window.event;
     e.preventDefault();
-    //get the mouse cursor position at startup:
+    //get the mouse cursor position at startup
     pos3 = e.clientX;
     pos4 = e.clientY;
     document.onmouseup = closeDragElement;
-    //call a function whenever the cursor moves:
+    //call a function whenever the cursor moves
     document.onmousemove = elementDrag;
   }
   function elementDrag(e) {
@@ -143,10 +209,8 @@ function dragElement(elmnt) {
   }
 }
 
-
 timer(5,0o00);
 
-document.getElementById("dolar").innerHTML = "$2 REWARD";
 makePpl(0, 20, 50, "500px", "400px", 2, 4);
 makePpl(1, 20, 50, "800px", "300px", 4, 6);
 makePpl(2, 20, 50, "700px", "200px", 6, 0);

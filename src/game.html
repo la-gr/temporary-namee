@@ -9,6 +9,11 @@
   <style>
       body{
           overflow: hidden; /* hides scroll bars */
+          margin: 0;
+          padding: 0;
+      }
+      #mainGame{
+          zoom: 100%;
       }
       #timer{
           position: fixed;
@@ -20,7 +25,6 @@
           font-style: normal;
           font-size: 30px;
           color: #460202;
-          background-image: url("../resources/timerBg.png");
           background-size: contain;
           width: 170px;
           height: 70px;
@@ -33,7 +37,6 @@
           position: absolute;
           width: 2995px;
           height: 1685px;
-          background-image: url("../resources/bgEx.png");
           background-size: max(2995px, 1685px);
           background-repeat: no-repeat;
           z-index: -1;
@@ -69,14 +72,13 @@
           z-index: 10;
           width: 260px;
           height: 350px;
-          background-image: url("../resources/wantedPoster.png");
           background-size: contain;
           background-repeat: no-repeat;
       }
       #want{
           position: fixed;
-          left:50px;
-          top:70px;
+          left:70px;
+          top:110px;
           z-index: 11;
       }
       #dolar{
@@ -88,42 +90,75 @@
           font-style: normal;
           font-size: 35px;
       }
+      #coins{
+          position: fixed;
+          left:80%;
+          top: 0;
+          z-index: 21;
+          font-family: "Mansalva", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+          font-size: 30px;
+          color: #460202;
+          background-size: contain;
+          width: 170px;
+          height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+      }
+      #zoom{
+          position: fixed;
+          z-index: 11;
+          width: 100px;
+          height:50px;
+          background-color:white;
+      }
       #confirmation{
           position: fixed;
-          background-image: url("../resources/backgorund.png");
           background-size: cover;
-          z-index: 200;
+          background-repeat: no-repeat;
+          z-index: 202;
           width: 100%;
           height: 100%;
       }
       #start{
           position: fixed;
           left: 860px;
-          top: 300px;
+          top: 370px;
       }
       #back{
           position: fixed;
           left: 390px;
-          top: 300px;
+          top: 370px;
       }
       .con{
-          width: 300px;
-          height: 150px;
+          width: 250px;
+          height: 120px;
           font-family: "Mansalva", sans-serif;
           font-weight: 400;
           font-style: normal;
           font-size: 35px;
+          color: #460202;
           background-image: url("../resources/timerBg.png");
           background-size: contain;
+          z-index: 201;
+          border: none;
+          box-shadow: 0 0 15px #330e0e;
+      }
+      .con:hover{
+          color: #670909;
+          background-image: url("../resources/timerBg2.png");
+          box-shadow: 0 5px 25px #440000;
       }
       .loading{
           position: absolute;
-          background-image: url("../resources/loadi2.png");
-          background-size: auto 100%;
+          background-image: url("../resources/loading.gif");
+          background-size: cover;
           background-repeat: no-repeat;
-          width: 1920px;
-          height: 1080px;
-          z-index:100;
+          width: 100%;
+          height: 100%;
+          z-index:400;
       }
   </style>
 </head>
@@ -131,8 +166,8 @@
 
 <div id="mainGame">
   <div id="poster">
-    <img id="want" src = "../resources/preson.png" alt="want" width="150" height="230">
-    <p id="dolar"></p>
+    <img id="want" src = "../resources/preson.png" alt="want" width="90" height="170">
+    <p id="dolar">$2 REWARD</p>
   </div>
   <div id="timer">
     <p id="timerDis"></p>
@@ -140,7 +175,7 @@
   <div id="bg">
     <div id="ppl"></div>
   </div>
-  <p id="coins"></p>
+  <p id="coins">Coins: 0</p>
   <div id="cowboy">
     <img id="catTalk" src = "../resources/catTalkTemp.gif" alt="catTalk" width="200" height="100">
     <p id="text">hello this is how you play the game blah blah blah wow so cool</p>
@@ -150,11 +185,11 @@
 <div id="confirmation">
   <button class="con" id="start">START</button> <!-- START button -->
   <button class="con" id="back">BACK</button> <!-- BACK button -->
-  <audio id="talk" src="../resources/talkTemp.mp3" style="display: none;" ></audio>
-  <audio id="bgMusic" src="../resources/tempSong.mp3" style="display: none;" loop></audio>
+  <audio id="talk" style="display: none;" ></audio>
+  <audio id="bgMusic" style="display: none;" loop></audio>
 </div>
 <div class="loading"></div>
-<script src="main.js"></script>
+<script type="module" src="main.js"></script>
 
 </body>
 </html>
