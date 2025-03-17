@@ -9,8 +9,34 @@
     font-style: normal;
 }
 
-body{
+.score{
+
+}
+
+.body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    position: absolute;
+    top: 5%;
+    left: 25%;
     text-align: center;
+    background-color: #e7d6d6;
+    width: 768px;
+    max-width: 100%;
+    min-height: 800px;
+    /*position: relative;*/
+    border-radius: 150px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+    padding: 50px;
+}
+
+.leaderboard-container{
+    ;
 }
 
 table{

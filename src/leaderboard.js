@@ -1,7 +1,7 @@
 let data = [
-  {name:"bob", score:10},
-  {name:"jim", score:100},
-  {name:"joe", score:0},
+  {name:"bob", score:10, date:""},
+  {name:"jim", score:100, date:""},
+  {name:"joe", score:0, date:""},
 ];
 
 //display leaderboard
@@ -23,6 +23,7 @@ function displayLeaderboard() {
         <td>${index + 1}</td>
         <td>${data.name}</td>
         <td>${data.score}</td>
+        <td>${data.date}</td>
     </tr>`;
     leaderboard.innerHTML += row;
   });
