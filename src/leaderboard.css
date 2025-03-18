@@ -35,6 +35,15 @@
 
 }
 
+.menu-button{
+    width: 100px;
+    height: 100px;
+    background-image: url("resources/menu button.png");
+    background-size: cover;
+    border: none;
+    cursor: pointer;
+}
+
 table{
     margin: 20px auto;
     border-collapse: collapse;
