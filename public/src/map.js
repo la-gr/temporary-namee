@@ -19,6 +19,8 @@ window.onload = function () {
   if (but) {
     //alien map is clicked
     but.onclick = function () {
+      //const socket = new WebSocket("https://la-gr.github.io/temporary-namee/src/");
+      //socket.send("User clicked!");
       sessionStorage.setItem("pam", "1");
       window.location.href = "game.html";
     };

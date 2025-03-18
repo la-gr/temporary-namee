@@ -22,30 +22,11 @@ if (pam === "1") {
   images = getAlienImages();
 }
 
-/*
-let ppl = [images[4],images[5],images[6]]; //images of people
-confirm.style.display="none";
-mainG.style.display="none";
-
-let loadingScreen = document.querySelector(".loading");
-window.addEventListener('load', function() {
-  time.style.backgroundImage = "url("+images[0]+")";
-  coins.style.backgroundImage = "url("+images[0]+")";
-  bg.style.backgroundImage = "url("+images[1]+")";
-  poster.style.backgroundImage = "url("+images[2]+")";
-  confirm.style.backgroundImage = "url("+images[3]+")";
-
-  talk.src = images[7];
-  bgMusic.src = images[8];
-  catTalk.src = images[9];
-  confirm.style.display="block";
-  loadingScreen.style.display = 'none';
-})*/
 
 let ppl =[images[4], images[5], images[6]] //Images of people
-let loadingScreen = document.querySelector(".loading");
 
-// Preload images before setting styles
+let loadingScreen = document.querySelector(".loading");
+//Preload images before setting styles
 function preloadImages(urls, callback) {
   let loaded = 0;
   console.log("loaded:"+loaded);
@@ -60,14 +41,12 @@ function preloadImages(urls, callback) {
     };
   });
 }
-
 // List of images to preload
 const imagesToPreload = [
   images[0], images[1], images[2], images[3],
   images[4], images[5], images[6], images[9]
 ];
-
-// Apply styles **before** hiding the loading screen
+// Apply styles before hiding the loading screen
 preloadImages(imagesToPreload, function() {
   time.style.backgroundImage = "url(" + images[0] + ")";
   coins.style.backgroundImage = "url(" + images[0] + ")";
@@ -79,9 +58,17 @@ preloadImages(imagesToPreload, function() {
   loadingScreen.style.display = "none";
   confirm.style.display = "block";
 });
-
+//set the audio later because they aren't noticeably behind
 talk.src = images[7];
 bgMusic.src = images[8];
+
+// file2.js
+//const socket = new WebSocket("wss://yourserver.com");
+//socket.onmessage = (event) => {
+ // console.log("Received:", event.data);
+//};
+
+
 
 // confirmation screen (start playing the selected map or go back)
 startBut.addEventListener("click", () => { //user clicks start
