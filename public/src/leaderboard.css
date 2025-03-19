@@ -38,11 +38,14 @@
 .menu-button{
     width: 100px;
     height: 100px;
-    background-image: url("resources/menu button.png");
-    background-size: cover;
+    background-image: url("/resources/menu button.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     border: none;
     cursor: pointer;
 }
+
+
 
 table{
     margin: 20px auto;
