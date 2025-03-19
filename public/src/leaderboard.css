@@ -20,24 +20,28 @@
     transform: translate(-50%, -50%);
 
     position: absolute;
+    background-image: url("/resources/paper.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     text-align: center;
-    background-color: #e7d6d6;
     width: 500px;
     max-width: 100%;
-    min-height: 600px;
-    /*position: relative;*/
-    border-radius: 150px;
+    min-height: 666px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
     padding: 50px;
 }
 
 .leaderboard-container{
-
+    width: 449px;
+    height: 363px;
+    background-image: url("/resources/leaderboard bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
 }
 
 .menu-button{
-    width: 100px;
-    height: 100px;
+    width: 151px;
+    height: 114px;
     background-image: url("/resources/menu button.png");
     background-size: contain;
     background-repeat: no-repeat;
@@ -45,7 +49,18 @@
     cursor: pointer;
 }
 
+.restart-button{
+    width: 216px;
+    height: 74px;
+    background-image: url("/resources/restart bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+/*    align text vertically*/
 
+}
 
 table{
     margin: 20px auto;
