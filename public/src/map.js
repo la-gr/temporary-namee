@@ -1,16 +1,16 @@
 //all the images pertaining to the alien map
 export function getAlienImages(){
   return [
-    '../resources/timerBg.png',
-    '../resources/bgEx.png',
-    '../resources/wantedPoster.png',
-    '../resources/confBg.gif',
-    '../resources/preson.png',
-    '../resources/ppl2.png',
-    '../resources/ppl3.png',
-    '../resources/talkTemp.mp3',
-    '../resources/tempSong.mp3',
-    '../resources/catTalkTemp.gif',
+    '/resources/timerBg.png',
+    '/resources/bgEx.png',
+    '/resources/wantedPoster.png',
+    '/resources/confBg.gif',
+    '/resources/preson.png',
+    '/resources/ppl2.png',
+    '/resources/ppl3.png',
+    '/resources/talkTemp.mp3',
+    '/resources/tempSong.mp3',
+    '/resources/catTalkTemp.gif',
   ];
 }
 

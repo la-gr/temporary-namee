@@ -1,5 +1,5 @@
 let n = 0; //used to make sure the user can only click on the correct person
-let money = 0; //amount of money the user has earned this round
+export let money = 0; //amount of money the user has earned this round
 //putting all the html elements into variables
 let coins = document.getElementById("coins");
 let confirm = document.getElementById("confirmation");
@@ -110,6 +110,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.style.top = t;
   button.onclick= function() {
     if (nextMon === 0){
+      sessionStorage.setItem("money", money);
       window.location.href = "leaderboard.html";
     }
     else {
