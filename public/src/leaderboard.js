@@ -1,8 +1,8 @@
-import {money} from './game.js';
+const money = sessionStorage.getItem("money");
 
 //display score
 function displayScore() {
-  var score = money;
+  let score = money;
   document.getElementById('score').innerHTML = score;
 }
 
@@ -39,6 +39,7 @@ function displayLeaderboard() {
   });
 }
 
-// window.unload = function(){
+// window.onload = function(){
   displayLeaderboard();
+  displayScore();
 // }
