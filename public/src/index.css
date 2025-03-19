@@ -9,7 +9,7 @@
 
 body {
     /*background-image: url('https://i.pinimg.com/originals/6a/a3/7f/6aa37fd0017bdb291ca8cbdd8b0ede52.gif');*/
-    background-image: url('https://i.pinimg.com/originals/4a/f6/f8/4af6f86d92c576fed38459a495d8c498.gif');
+    background-image: url('../resources/cowboy.gif');
     background-size: cover;
     display: flex;
     justify-content: center;  /* Centers horizontally */
