@@ -1,3 +1,5 @@
+import {money} from './game.js';
+
 //array of data stored
 let data = [
   {name:"bob", score:10, date:""},
