@@ -1,5 +1,10 @@
 import {money} from './game.js';
 
+function displayScore(){
+  var score = money;
+  document.getElementById('score').innerHTML = score;
+}
+
 //array of data stored
 let data = [
   {name:"bob", score:10, date:""},
@@ -33,4 +38,6 @@ function displayLeaderboard() {
   });
 }
 
-displayLeaderboard()
+// window.unload = function(){
+  displayLeaderboard();
+// }
