@@ -1,6 +1,6 @@
 import {money} from './game.js';
 
-function displayScore(){
+function displayScore() {
   var score = money;
   document.getElementById('score').innerHTML = score;
 }
