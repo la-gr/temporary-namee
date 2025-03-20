@@ -48,3 +48,14 @@ function onSignIn(googleUser) {
 // });
 // }
 // </script>
+
+
+// temporary test button to ensure that the server stuff works - can remove later
+window.onload = function () {
+  let but = document.getElementById("but");
+  if (but) {
+    but.onclick = function () {
+      window.location.href = "/map"; // Redirects to serv.html
+    };
+  }
+};
