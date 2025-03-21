@@ -140,7 +140,7 @@
           font-style: normal;
           font-size: 35px;
           color: #460202;
-          background-image: url("/resources/timerBg.png");
+          background-image: url("resources/timerBg.png");
           background-size: contain;
           z-index: 201;
           border: none;
@@ -148,12 +148,12 @@
       }
       .con:hover{
           color: #670909;
-          background-image: url("/resources/timerBg2.png");
+          background-image: url("resources/timerBg2.png");
           box-shadow: 0 5px 25px #440000;
       }
       .loading{
           position: absolute;
-          background-image: url("/resources/loading.gif");
+          background-image: url("resources/loading.gif");
           background-size: cover;
           background-repeat: no-repeat;
           width: 100%;
@@ -166,7 +166,7 @@
 
 <div id="mainGame">
   <div id="poster">
-    <img id="want" src = "/resources/preson.png" alt="want" width="90" height="170">
+    <img id="want" src = "resources/preson.png" alt="want" width="90" height="170">
     <p id="dolar">$2 REWARD</p>
   </div>
   <div id="timer">
@@ -177,7 +177,7 @@
   </div>
   <p id="coins">Coins: 0</p>
   <div id="cowboy">
-    <img id="catTalk" src = "/resources/catTalkTemp.gif" alt="catTalk" width="200" height="100">
+    <img id="catTalk" src = "resources/catTalkTemp.gif" alt="catTalk" width="200" height="100">
     <p id="text">hello this is how you play the game blah blah blah wow so cool</p>
     <button id="ok">OK</button>
   </div>
@@ -189,7 +189,9 @@
   <audio id="bgMusic" style="display: none;" loop></audio>
 </div>
 <div class="loading"></div>
-<script type="module" src="game.js"></script>
 
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="module" src="./game.js"></script>
 </body>
 </html>

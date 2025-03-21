@@ -1,3 +1,5 @@
+//game.js
+
 let n = 0; //used to make sure the user can only click on the correct person
 export let money = 0; //amount of money the user has earned this round
 //putting all the html elements into variables
@@ -15,11 +17,16 @@ let bg = document.getElementById("bg");
 let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
 
+console.log("peeoe");
+
+
 let images = [];
-import {getAlienImages} from "./map.js";
+import { getAlienImages } from "./map.js";
 const pam = sessionStorage.getItem("pam");
 if (pam === "1") {
+  console.log("2222");
   images = getAlienImages();
+  console.log(images[0],images[1],images[2],images[3],images[4],images[5],images[6],images[7],images[8],images[9]);
 }
 
 
@@ -28,8 +35,8 @@ let ppl =[images[4], images[5], images[6]] //Images of people
 let loadingScreen = document.querySelector(".loading");
 //Preload images before setting styles
 function preloadImages(urls, callback) {
+  console.log("poco");
   let loaded = 0;
-  console.log("loaded:"+loaded);
   let total = urls.length;
 
   urls.forEach((url, index) => {
@@ -62,13 +69,6 @@ preloadImages(imagesToPreload, function() {
 talk.src = images[7];
 bgMusic.src = images[8];
 
-// file2.js
-//const socket = new WebSocket("wss://yourserver.com");
-//socket.onmessage = (event) => {
- // console.log("Received:", event.data);
-//};
-
-
 
 // confirmation screen (start playing the selected map or go back)
 startBut.addEventListener("click", () => { //user clicks start
@@ -83,6 +83,7 @@ startBut.addEventListener("click", () => { //user clicks start
 backBut.addEventListener("click", () => {
   window.location.href = "map.html";
 })
+
 
 //the 'ok' button is clicked on the cowboy talking
 ok.addEventListener("click", () => {
@@ -135,6 +136,7 @@ function timer(m,s){
   let sec = s;
   let timer = setInterval(function(){
     if(sec>=10){
+      console.log("peeoe");
       document.getElementById('timerDis').innerHTML='0'+min+":"+sec;
     } else{ //adds a 0 before a single digit number in seconds
       document.getElementById('timerDis').innerHTML='0'+min+":0"+sec;
