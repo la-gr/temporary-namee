@@ -39,7 +39,18 @@ function displayLeaderboard() {
   });
 }
 
-// window.onload = function(){
+const menuButton = document.getElementById('menu');
+const restartButton = document.getElementById('restart');
+
+//redirect user to map selection
+menuButton.addEventListener('click', () => {
+  window.location.href = "map.html";
+});
+
+restartButton.addEventListener('click', () => {
+  window.location.href = "game.html";
+})
+
+
   displayLeaderboard();
   displayScore();
-// }
