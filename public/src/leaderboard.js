@@ -39,17 +39,21 @@ function displayLeaderboard() {
   });
 }
 
-const menuButton = document.getElementById('menu');
-const restartButton = document.getElementById('restart');
+document.addEventListener("DOMContentLoaded", () => {
+    const menuButton = document.getElementById('menu');
+    const restartButton = document.getElementById('restart');
 
 //redirect user to map selection
-menuButton.addEventListener('click', () => {
-  window.location.href = "map.html";
-});
+    menuButton.addEventListener('click', () => {
+      window.location.href = "map.html";
+    });
 
-restartButton.addEventListener('click', () => {
-  window.location.href = "game.html";
-})
+    restartButton.addEventListener('click', () => {
+      window.location.href = "game.html";
+    });
+  });
+
+
 
 
   displayLeaderboard();
