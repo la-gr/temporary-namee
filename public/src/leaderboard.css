@@ -3,10 +3,6 @@
     font-family: "Mansalva", sans-serif;
 }
 
-.score-container{
-
-}
-
 .body{
     display: flex;
     justify-content: center;
@@ -19,27 +15,69 @@
     left: 50%;
     transform: translate(-50%, -50%);
 
+    display: flex;
+    flex-direction: column;
     position: absolute;
     background-image: url("/resources/paper.png");
     background-size: contain;
     background-repeat: no-repeat;
-    text-align: center;
+    align-items: center;
     width: 500px;
     max-width: 100%;
     min-height: 666px;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-    padding: 50px;
+    padding: 30px;
+}
+
+.score-container{
+    width: 410px;
+    height: 134px;
+    padding: 5px;
+    margin-top: -20px;
+    margin-bottom: -58px;
+    background-image: url("/resources/score bg.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    text-align: center;
+    z-index: 1;
+}
+
+#your-score{
+    margin-top: 40px;
+    margin-bottom: 4px;
+}
+
+#score{
+    font-size: 68px;
+    font-weight: 600;
 }
 
 .leaderboard-container{
-    width: 449px;
-    height: 363px;
+    width: 490px;
+    height: 396px;
+    padding-top: 80px;
+    margin: -15px;
     background-image: url("/resources/leaderboard bg.png");
     background-size: contain;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
-.menu-button{
+.button-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding-left: 15px;
+    margin: -25px;
+}
+
+.button{
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button#menu{
     width: 151px;
     height: 114px;
     background-image: url("/resources/menu button.png");
@@ -49,17 +87,17 @@
     cursor: pointer;
 }
 
-.restart-button{
-    width: 216px;
-    height: 74px;
+button#restart{
+    width: 250px;
+    height: 85px;
+    margin-top: 20px;
     background-image: url("/resources/restart bg.png");
     background-size: contain;
     background-repeat: no-repeat;
     border: none;
     cursor: pointer;
     text-align: center;
-/*    align text vertically*/
-
+    font-size: 40px;
 }
 
 table{
