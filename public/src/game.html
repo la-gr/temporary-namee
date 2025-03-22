@@ -15,9 +15,6 @@
           margin: 0;
           padding: 0;
       }
-      #mainGame{
-          zoom: 100%;
-      }
       #timer{
           position: fixed;
           left: 670px;
@@ -154,19 +151,11 @@
           background-image: url("resources/timerBg2.png");
           box-shadow: 0 5px 25px #440000;
       }
-      .loading{
-          position: absolute;
-          background-image: url("resources/loading.gif");
-          background-size: cover;
-          background-repeat: no-repeat;
-          width: 100%;
-          height: 100%;
-          z-index:400;
-      }
   </style>
 </head>
 <body>
 
+<div class="loading"></div>
 <div id="mainGame">
   <div id="poster">
     <img id="want" src = "resources/preson.png" alt="want" width="90" height="170">
@@ -191,7 +180,6 @@
   <audio id="talk" style="display: none;" ></audio>
   <audio id="bgMusic" style="display: none;" loop></audio>
 </div>
-<div class="loading"></div>
 
 <!--LEADERBOARD STUFF-->
 <div id="game-over">
@@ -227,7 +215,6 @@
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
-
 <script type="module" src="./game.js"></script>
 </body>
 </html>

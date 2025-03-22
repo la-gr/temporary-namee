@@ -2,7 +2,7 @@
 
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
-//putting all the html elements into variables
+//putting all necessary html elements into variables
 let coins = document.getElementById("coins");
 let confirm = document.getElementById("confirmation");
 let mainG = document.getElementById("mainGame");
@@ -18,28 +18,23 @@ let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
 let gameOver = document.getElementById("game-over");
 
-console.log("peeoe");
-
-
 let images = [];
 import { getAlienImages } from "./map.js";
 const pam = sessionStorage.getItem("pam");
 if (pam === "1") {
-  console.log("2222");
-  images = getAlienImages();
-  console.log(images[0],images[1],images[2],images[3],images[4],images[5],images[6],images[7],images[8],images[9]);
+  images = getAlienImages(); //puts the alien images into an array
 }
-
 
 let ppl =[images[4], images[5], images[6]] //Images of people
 
 let loadingScreen = document.querySelector(".loading");
+loadingScreen.style.display = "block";
+gameOver.style.display = "none";
+
 //Preload images before setting styles
 function preloadImages(urls, callback) {
-  console.log("poco");
   let loaded = 0;
   let total = urls.length;
-
   urls.forEach((url, index) => {
     let img = new Image();
     img.src = url;
@@ -63,8 +58,17 @@ preloadImages(imagesToPreload, function() {
   confirm.style.backgroundImage = "url(" + images[3] + ")";
   catTalk.src = images[9];
   // Hide loading screen and show content
-  loadingScreen.style.display = "none";
-  confirm.style.display = "block";
+  setTimeout(() => {
+    loadingScreen.classList.add("hidden");
+    confirm.style.visibility = "visible";
+    confirm.style.display = "block";
+    setTimeout(() => {
+      gameOver.style.display = "none";
+      gameOver.style.visibility = "visible";
+      mainG.style.visibility = "visible";
+      loadingScreen.style.display = "none";
+    }, 200);
+  },200);
 });
 //set the audio later because they aren't noticeably behind
 talk.src = images[7];
@@ -86,7 +90,6 @@ backBut.addEventListener("click", () => {
   window.location.href = "map.html";
 })
 
-
 //the 'ok' button is clicked on the cowboy talking
 ok.addEventListener("click", () => {
   cowboy.style.display="none"; //the block of the cowboy+text disappears
@@ -103,6 +106,7 @@ function pplSelect(r, mon) {
   }
 }
 
+//makes the people that are meant to be found
 function makePpl(a, w, h, l, t, mon, nextMon){
   //get the ppl div
   let div = document.getElementById("ppl");
@@ -112,18 +116,21 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.style.left = l;
   button.style.top = t;
   button.onclick= function() {
+    //the user has found all people
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
       // $('overlay');
       gameOver.style.display ="block";
+      mainG.style.display="none";
     }
+    //user has not yet found all people
     else {
       pplSelect(a, nextMon);
       money += mon; //add the money earned from finding the person to the total money earned
       coins.innerHTML = "Coins: "+money;
     }
   }
-  //create image
+  //create image of a person
   let image = document.createElement("img");
   image.src = ppl[a];
   image.alt = "person";
@@ -147,8 +154,10 @@ function timer(m,s){
     sec--;
     if (sec < 0 && min<0) {
       clearInterval(timer);
+      sessionStorage.setItem("money", money);
       // $('overlay');
       gameOver.style.display = "block";
+      mainG.style.display = "none";
     } else if (sec < 0){
       sec = 59;
       min--;

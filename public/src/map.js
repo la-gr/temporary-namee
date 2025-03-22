@@ -43,6 +43,13 @@ document.addEventListener("DOMContentLoaded", () => {
     socket.auth.serverOffset = serverOffset;
   });
 
+  let mon = sessionStorage.getItem("money");
+  if(!mon){
+    mon=0;
+  }
+  let money = document.getElementById("money");
+  money.innerHTML = "TOTAL COINS: "+mon;
+
   let alien = document.getElementById("alien");
   let mall = document.getElementById("mall");
   if (alien) {

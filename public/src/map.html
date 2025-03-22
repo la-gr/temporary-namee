@@ -14,6 +14,7 @@
           font-family: "Mansalva", sans-serif;
           font-weight: 400;
           font-style: normal;
+          color: #460202;
       }
 
       #bg{
@@ -54,6 +55,19 @@
           background: none;
           border: none;
       }
+      #money{
+          position: fixed;
+          padding:30px;
+          left:78%;
+          top: 20px;
+          display: inline-block;
+          background-image: url("resources/timerBg.png");
+          background-repeat: no-repeat;
+          background-size: max(350px, 50px);
+          font-size: 20px;
+          box-shadow: 0 0 15px #330e0e;
+          z-index:999;
+      }
   </style>
   <script type="module" src="/socket.io/socket.io.js"></script>
   <script type="module" src="./map.js" ></script>
@@ -61,6 +75,8 @@
 <body>
 
 <img id="bg" src="resources/mapSelBg.png" alt="mapSelect"/>
+
+<p id="money">TOTAL COINS: 0</p>
 
 <button id="alien"> <img src="resources/catHor.PNG" alt="cat-horse" width="239" height="218"/> </button>
 <button id="mall"> <img src="resources/catRein.PNG" alt="cat-reindeer" width="225" height="248"/> </button>
