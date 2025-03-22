@@ -1,7 +1,7 @@
 //game.js
 
 let n = 0; //used to make sure the user can only click on the correct person
-export let money = 0; //amount of money the user has earned this round
+let money = 0; //amount of money the user has earned this round
 //putting all the html elements into variables
 let coins = document.getElementById("coins");
 let confirm = document.getElementById("confirmation");
@@ -16,6 +16,7 @@ let time = document.getElementById("timer");
 let bg = document.getElementById("bg");
 let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
+let gameOver = document.getElementById("game-over");
 
 console.log("peeoe");
 
@@ -78,6 +79,7 @@ startBut.addEventListener("click", () => { //user clicks start
   //game screen appears
   mainG.style.display = "block";
   confirm.style.display = "none";
+  gameOver.style.display = "none";
 })
 //user clicks back
 backBut.addEventListener("click", () => {
@@ -112,7 +114,8 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.onclick= function() {
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
-      window.location.href = "leaderboard.html";
+      // $('overlay');
+      gameOver.style.display ="block";
     }
     else {
       pplSelect(a, nextMon);
@@ -144,7 +147,8 @@ function timer(m,s){
     sec--;
     if (sec < 0 && min<0) {
       clearInterval(timer);
-      window.location.href = "leaderboard.html";
+      // $('overlay');
+      gameOver.style.display = "block";
     } else if (sec < 0){
       sec = 59;
       min--;
@@ -204,3 +208,63 @@ timer(5,0o00);
 makePpl(0, 20, 50, "500px", "400px", 2, 4);
 makePpl(1, 20, 50, "800px", "300px", 4, 6);
 makePpl(2, 20, 50, "700px", "200px", 6, 0);
+
+
+//LEADERBOARD STUFF
+//display blur
+
+//display score
+function displayScore() {
+  let score = money;
+  document.getElementById('score').innerHTML = score;
+}
+
+//array of data stored
+let data = [
+  {name:"bob", score:10, date:""},
+  {name:"jim", score:100, date:""},
+  {name:"joe", score:0, date:""},
+];
+
+//display leaderboard
+function displayLeaderboard() {
+  const leaderboard = document.getElementById('leaderboard');
+  leaderboard.innerHTML = ''; //clears the previous content in table
+
+  //sort data to be displayed highest score to lowest
+  data
+    .sort ((a,b) => {
+      if (b.score === a.score) {
+        return a.name.localeCompare(b.name); //sort by name if scores are equal
+      } else
+        return b.score - a.score; //sort by score in descending order
+    });
+
+  //display the data in the leaderboard
+  data.forEach((data, index) => {
+    let row = `<tr>
+        <td>${index + 1}</td>
+        <td>${data.name}</td>
+        <td>${data.score}</td>
+        <td>${data.date}</td>
+    </tr>`;
+    leaderboard.innerHTML += row;
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menuButton = document.getElementById('menu');
+  const restartButton = document.getElementById('restart');
+
+//redirect user to map selection
+  menuButton.addEventListener('click', () => {
+    window.location.href = "map.html";
+  });
+
+  restartButton.addEventListener('click', () => {
+    window.location.href = "game.html";
+  });
+});
+
+displayLeaderboard();
+displayScore();

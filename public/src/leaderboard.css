@@ -108,3 +108,14 @@ table{
 th {
     display: none;
 }
+
+.overlay {
+    position:absolute;
+    width:100%;
+    height:100%;
+    left:0px;
+    top:0px;
+    background:#000;
+    opacity:0;
+    transition:opacity 0.3s;
+}

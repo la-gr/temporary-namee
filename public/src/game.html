@@ -2,10 +2,13 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>GAME</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="leaderboard.css">
   <style>
       body{
           overflow: hidden; /* hides scroll bars */
@@ -189,6 +192,39 @@
   <audio id="bgMusic" style="display: none;" loop></audio>
 </div>
 <div class="loading"></div>
+
+<!--LEADERBOARD STUFF-->
+<div id="game-over">
+  <div class="overlay"></div>
+  <div class="container">
+    <h1 id="your-score">YOUR SCORE</h1>
+    <div class="score-container">
+      <h1><span id= 'score'></span></h1>
+    </div>
+
+    <div class="leaderboard-container">
+      <h1>LEADERBOARD</h1>
+      <table>
+        <thead>
+        <tr>
+          <th>Rank</th>
+          <th>Name</th>
+          <th>Score</th>
+          <th>Date</th>
+        </tr>
+        </thead>
+        <tbody id="leaderboard">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="button-container">
+      <button class="button" id="menu"></button>
+      <button class="button" id="restart"> Restart</button>
+    </div>
+
+  </div>
+</div>
 
 <script src="/socket.io/socket.io.js"></script>
 
