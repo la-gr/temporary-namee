@@ -29,7 +29,6 @@ let ppl =[images[4], images[5], images[6]] //Images of people
 
 let loadingScreen = document.querySelector(".loading");
 loadingScreen.style.display = "block";
-gameOver.style.display = "none";
 
 //Preload images before setting styles
 function preloadImages(urls, callback) {
@@ -57,7 +56,7 @@ preloadImages(imagesToPreload, function() {
   poster.style.backgroundImage = "url(" + images[2] + ")";
   confirm.style.backgroundImage = "url(" + images[3] + ")";
   catTalk.src = images[9];
-  // Hide loading screen and show content
+  //Hide loading screen and show confirm screen
   setTimeout(() => {
     loadingScreen.classList.add("hidden");
     confirm.style.visibility = "visible";
@@ -146,7 +145,6 @@ function timer(m,s){
   let sec = s;
   let timer = setInterval(function(){
     if(sec>=10){
-      console.log("peeoe");
       document.getElementById('timerDis').innerHTML='0'+min+":"+sec;
     } else{ //adds a 0 before a single digit number in seconds
       document.getElementById('timerDis').innerHTML='0'+min+":0"+sec;
@@ -191,16 +189,19 @@ function dragElement(elmnt) {
     let maxX = winW - elmnt.offsetWidth - 1;
     let maxY = winH - elmnt.offsetHeight - 1;
     //calculate the new cursor position
-    pos1 = pos3 - e.clientX;
-    pos2 = pos4 - e.clientY;
-    pos3 = e.clientX;
-    pos4 = e.clientY;
+    pos1 = pos3 - e.clientX; //change in x position of mouse
+    pos2 = pos4 - e.clientY; //change in y position of mouse
+    pos3 = e.clientX; //current x position
+    pos4 = e.clientY; //current y position
 
-    console.log(elmnt.offsetTop, pos2);
+    console.log(pos1, pos2, pos3);
+
     //set the bg's new position
+    //makes sure the bg is restricted to movement within the size of the bg image (vertical)
     if ((elmnt.offsetTop - pos2) >= maxY && (elmnt.offsetTop - pos2) <= 0) {
       elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
     }
+    //makes sure the bg is restricted to movement within the size of the bg image (horizontal)
     if ((elmnt.offsetLeft - pos1) >= maxX && (elmnt.offsetLeft - pos1) <= 0) {
       elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
@@ -212,8 +213,8 @@ function dragElement(elmnt) {
   }
 }
 
+//start timer and make the people to show up on screen
 timer(5,0o00);
-
 makePpl(0, 20, 50, "500px", "400px", 2, 4);
 makePpl(1, 20, 50, "800px", "300px", 4, 6);
 makePpl(2, 20, 50, "700px", "200px", 6, 0);

@@ -16,6 +16,20 @@ export function getAlienImages() {
   ];
 }
 
+//setup for the loading screen
+let loadingScreen = document.querySelector(".loading");
+let mapSelect = document.getElementById("mapSelect");
+window.addEventListener('load', function() {
+  setTimeout(() => {
+    loadingScreen.classList.add("hidden");
+    mapSelect.style.visibility = "visible";
+    mapSelect.style.display = "block";
+    setTimeout(() => {
+      loadingScreen.style.display = "none";
+    }, 200); //the time makes the transition smoother
+  },200);
+})
+
 document.addEventListener("DOMContentLoaded", () => {
   const socket = io();
 
@@ -41,7 +55,7 @@ document.addEventListener("DOMContentLoaded", () => {
       messages.removeChild(lis[0]);
     }
     messages.appendChild(item); //add the message to the ul
-    window.scrollTo(0, document.body.scrollHeight); //scrolls the messages
+    window.scrollTo(0, document.messages.scrollHeight); //scrolls the messages
     socket.auth.serverOffset = serverOffset;
   });
 

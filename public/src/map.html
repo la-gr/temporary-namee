@@ -7,8 +7,25 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mansalva&display=swap" rel="stylesheet">
   <style>
-      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
-
+      .loading{
+          position: absolute;
+          background-image: url("resources/loading.gif");
+          background-size: cover;
+          background-repeat: no-repeat;
+          width: 100%;
+          height: 100%;
+          z-index:9999;
+          opacity: 1;
+          transition: opacity 0.2s ease-out;
+      }
+      .hidden {
+          opacity: 0;
+          pointer-events: none;
+      }
+      #mapSelect{
+          display: none;
+          visibility: hidden;
+      }
       body {
           margin: 0;
           padding-bottom: 3rem;
@@ -74,18 +91,21 @@
   <script type="module" src="./map.js" ></script>
 </head>
 <body>
+<div class="loading"></div>
 
-<img id="bg" src="resources/mapSelBg.png" alt="mapSelect"/>
+<div id="mapSelect">
+  <img id="bg" src="resources/mapSelBg.png" alt="mapSelect"/>
 
-<p id="money">TOTAL COINS: 0</p>
+  <p id="money">TOTAL COINS: 0</p>
 
-<button id="alien"> <img src="resources/catHor.PNG" alt="cat-horse" width="239" height="218"/> </button>
-<button id="mall"> <img src="resources/catRein.PNG" alt="cat-reindeer" width="225" height="248"/> </button>
+  <button id="alien"> <img src="resources/catHor.PNG" alt="cat-horse" width="239" height="218"/> </button>
+  <button id="mall"> <img src="resources/catRein.PNG" alt="cat-reindeer" width="225" height="248"/> </button>
 
-<ul id="messages"></ul>
-<form id="form" action="">
-  <input id="input" autocomplete="off" /><button id="send">Send</button>
-</form>
+  <ul id="messages"></ul>
+  <form id="form" action="">
+    <input id="input" autocomplete="off" /><button id="send">Send</button>
+  </form>
+</div>
 
 </body>
 </html>
