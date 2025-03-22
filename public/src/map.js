@@ -1,3 +1,5 @@
+//map.js
+
 //all the images pertaining to the alien map
 export function getAlienImages() {
   return [
