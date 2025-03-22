@@ -1,5 +1,3 @@
-//map.js
-
 //all the images pertaining to the alien map
 export function getAlienImages() {
   return [
@@ -23,6 +21,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const input = document.getElementById('input');
   const messages = document.getElementById('messages');
 
+  let chats = [];
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (input.value) {
@@ -32,22 +32,31 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   socket.on('chat message', (msg, serverOffset) => {
     const item = document.createElement('li');
-    item.textContent = msg;
-    messages.appendChild(item);
-    window.scrollTo(0, document.body.scrollHeight);
+    item.textContent = msg; //set the item to the user's entered message
+    let lis = messages.getElementsByTagName("li"); //get the list in the ul
+    //only 3 messages at a time are visible
+    if (lis.length>2) {
+      messages.removeChild(lis[0]);
+    }
+    messages.appendChild(item); //add the message to the ul
+    window.scrollTo(0, document.body.scrollHeight); //scrolls the messages
     socket.auth.serverOffset = serverOffset;
   });
 
-  console.log("pee");
-
-  window.onload = function() {
-    let but = document.getElementById("but");
-    if (but) {
-      //alien map is clicked
-      but.onclick = function() {
-        sessionStorage.setItem("pam", "1");
-        window.location.href = "game.html";
-      };
-    }
-  };
+  let alien = document.getElementById("alien");
+  let mall = document.getElementById("mall");
+  if (alien) {
+    //alien map is clicked
+    alien.onclick = function() {
+      sessionStorage.setItem("pam", "1");
+      window.location.href = "game.html";
+    };
+  }
+  if (mall) {
+    //mall map is clicked
+    mall.onclick = function() {
+      sessionStorage.setItem("pam", "2");
+      window.location.href = "game.html";
+    };
+  }
 });
