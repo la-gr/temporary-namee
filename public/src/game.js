@@ -80,6 +80,7 @@ startBut.addEventListener("click", () => { //user clicks start
   mainG.style.display = "block";
   confirm.style.display = "none";
   gameOver.style.display = "none";
+  overlay.style.display = "none";
 })
 //user clicks back
 backBut.addEventListener("click", () => {
@@ -114,7 +115,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.onclick= function() {
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
-      // $('overlay');
+      console.log("here");
       gameOver.style.display ="block";
     }
     else {
@@ -147,7 +148,6 @@ function timer(m,s){
     sec--;
     if (sec < 0 && min<0) {
       clearInterval(timer);
-      // $('overlay');
       gameOver.style.display = "block";
     } else if (sec < 0){
       sec = 59;
