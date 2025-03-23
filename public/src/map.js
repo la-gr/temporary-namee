@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
     item.textContent = msg; //set the item to the user's entered message
     let lis = messages.getElementsByTagName("li"); //get the list in the ul
     //only 3 messages at a time are visible
-    if (lis.length>2) {
+    if (lis.length > 2) {
       messages.removeChild(lis[0]);
     }
     messages.appendChild(item); //add the message to the ul
@@ -60,11 +60,11 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   let mon = sessionStorage.getItem("money");
-  if(!mon){
-    mon=0;
+  if (!mon) {
+    mon = 0;
   }
   let money = document.getElementById("money");
-  money.innerHTML = "TOTAL COINS: "+mon;
+  money.innerHTML = "TOTAL COINS: " + mon;
 
   let alien = document.getElementById("alien");
   let mall = document.getElementById("mall");
@@ -83,3 +83,32 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   }
 });
+
+  //creating character
+  const character = document.querySelector('.character');
+
+  //starting position
+  let x = 0;
+  let y = 0;
+
+  const step = 10; //size of a step
+
+  document.addEventListener("keydown", (e) => {
+    if (!["w", "a", "s", "d"].includes(e.key)) return; //ignore keypress if not wasd
+    switch (e.key) {
+      case 'w': // Move up
+        if (y - step >= -200) y -= step;
+        break;
+      case 'a': // Move left
+        if (x - step >= -800) x -= step;
+        break;
+      case 's': // Move down
+        if (y + step <= 1440) y += step;
+        break;
+      case 'd': // Move right
+        if (x + step <= 1075) x += step;
+        break;
+    }
+
+    character.style.transform = `translate(${x}px, ${y}px)`;
+  });
