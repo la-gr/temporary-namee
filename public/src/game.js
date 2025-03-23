@@ -118,7 +118,6 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     //the user has found all people
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
-      // $('overlay');
       gameOver.style.display ="block";
       mainG.style.display="none";
     }
@@ -153,7 +152,6 @@ function timer(m,s){
     if (sec < 0 && min<0) {
       clearInterval(timer);
       sessionStorage.setItem("money", money);
-      // $('overlay');
       gameOver.style.display = "block";
       mainG.style.display = "none";
     } else if (sec < 0){
