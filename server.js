@@ -25,6 +25,15 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg);
   });
 
+  socket.on("send image", (imageUrl) => {
+    io.emit("receive image", imageUrl); // Send to all clients
+  });
+
+  // Listen for movement updates
+  socket.on("move character", (data) => {
+    io.emit("update character", data); // Send movement to all players
+  });
+
   socket.on('disconnect', () => {
     console.log('User disconnected');
   });
