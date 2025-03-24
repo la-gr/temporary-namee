@@ -17,6 +17,7 @@ let bg = document.getElementById("bg");
 let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
 let gameOver = document.getElementById("game-over");
+// let endscreen = true;
 
 let images = [];
 import { getAlienImages } from "./map.js";
@@ -119,6 +120,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
       gameOver.style.display ="block";
+      // endscreen = false;
       mainG.style.display="none";
     }
     //user has not yet found all people
@@ -158,6 +160,9 @@ function timer(m,s){
       sec = 59;
       min--;
     }
+    // if (!endscreen){
+    //   break ;
+    // }
   }, 1000); //loops every 1 second
 }
 
