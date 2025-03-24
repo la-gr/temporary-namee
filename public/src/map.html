@@ -46,14 +46,15 @@
       #input:focus { outline: none; }
       #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
       #messages {
+          border-radius: 25px;
           list-style-type: none;
           margin: 0;
           padding: 0;
           position: relative;
-          left: 600px;
-          top: 200px;
-          width: 200px;
-          background-color: #ece8d1;
+          right: 15px;
+          top: 0;
+          width: 160px;
+          background-color: #ffffff;
       }
       #messages > li {
           word-wrap: break-word;
@@ -88,9 +89,9 @@
       }
 
       .character{
-          width: 50px;
-          height: 50px;
-          background-color: #007bff;
+          width: 200px;
+          height: 251px;
+          background: none;
           position: absolute;
           top: 200px;
           left: 800px;
@@ -111,13 +112,16 @@
   <button id="alien"> <img src="resources/catHor.PNG" alt="cat-horse" width="239" height="218"/> </button>
   <button id="mall"> <img src="resources/catRein.PNG" alt="cat-reindeer" width="225" height="248"/> </button>
 
-  <ul id="messages"></ul>
   <form id="form" action="">
     <input id="input" autocomplete="off" /><button id="send">Send</button>
   </form>
 
 <!--  moveable character-->
   <div class="character">
+    <ul id="messages">
+      <li>Hello!</li>
+    </ul>
+    <img id="char" src="resources/gF.png" alt="char" width="131" height="151"/>
   </div>
 </div>
 

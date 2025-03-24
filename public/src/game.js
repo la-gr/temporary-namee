@@ -94,6 +94,9 @@ backBut.addEventListener("click", () => {
 ok.addEventListener("click", () => {
   cowboy.style.display="none"; //the block of the cowboy+text disappears
   talk.pause(); //stops the talking
+  //starts timer and ets bg become draggable
+  timer(5,0o00);
+  dragElement(document.getElementById("bg"));
 })
 
 
@@ -167,7 +170,6 @@ function timer(m,s){
 }
 
 //make the background draggable
-dragElement(document.getElementById("bg"));
 document.addEventListener("wheel", (e) => e.preventDefault(), { passive: false }); //prevents scrolling
 function dragElement(elmnt) {
   let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
@@ -197,8 +199,6 @@ function dragElement(elmnt) {
     pos3 = e.clientX; //current x position
     pos4 = e.clientY; //current y position
 
-    console.log(pos1, pos2, pos3);
-
     //set the bg's new position
     //makes sure the bg is restricted to movement within the size of the bg image (vertical)
     if ((elmnt.offsetTop - pos2) >= maxY && (elmnt.offsetTop - pos2) <= 0) {
@@ -216,8 +216,7 @@ function dragElement(elmnt) {
   }
 }
 
-//start timer and make the people to show up on screen
-timer(5,0o00);
+//make the people to show up on screen
 makePpl(0, 20, 50, "500px", "400px", 2, 4);
 makePpl(1, 20, 50, "800px", "300px", 4, 6);
 makePpl(2, 20, 50, "700px", "200px", 6, 0);
