@@ -9,7 +9,7 @@
 
 body {
     /*background-image: url('https://i.pinimg.com/originals/6a/a3/7f/6aa37fd0017bdb291ca8cbdd8b0ede52.gif');*/
-    background-image: url('../resources/cowboy.gif');
+    background-image: url('resources/cowboy.gif');
     background-size: cover;
     display: flex;
     justify-content: center;  /* Centers horizontally */
@@ -39,7 +39,7 @@ body {
 
     position: absolute;
     top: 25%; /* Adjust this value to move it down */
-    left: 42%;
+    left: 40%;
 
     color: #efded6;
     text-shadow:
@@ -70,7 +70,7 @@ body {
 
     position: absolute;
     top: 30%; /* Adjust this value to move it down */
-    left: 27%;
+    left: 20%;
 
 }
 
