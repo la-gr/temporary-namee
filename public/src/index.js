@@ -47,6 +47,13 @@ document.addEventListener("DOMContentLoaded", function () {
       const username = usernameInput.value;
       const password = passwordInput.value;
 
+      const passwordRegex = /^(?=.*[A-Z])(?=.*\d).{6,}$/;
+
+      if (!passwordRegex.test(password)) {
+        alert("Password must be at least 6 characters long, contain at least one uppercase letter and one number.");
+        return;  // Stop the form submission
+      }
+
       if (localStorage.getItem(username)) {
         alert("Username already exists! Try a different one.");
       } else {
@@ -99,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
           if (result) {
             alert(`Welcome, ${storedUser.name}!`);
+            localStorage.setItem("loggedInUser", storedUser.username);
+            window.location.href = "/map";
             // Redirect to the game page or do something else after successful login
           } else {
             alert("Incorrect password. Try again.");
