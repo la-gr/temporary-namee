@@ -102,6 +102,7 @@ body {
 }
 
 #muteButton{
+    z-index: 1000; /* Make sure it's above other elements */
     position: absolute;
     font-size: 30px;
     left: 2%;

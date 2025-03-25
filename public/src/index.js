@@ -143,6 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
             alert(`Welcome, ${storedUser.name}!`);
             localStorage.setItem("loggedInUser", storedUser.username);
             localStorage.setItem("loggedInUser", "username"); // Store username
+
             window.location.href = "/map";
             // Redirect to the game page or do something else after successful login
           } else {
