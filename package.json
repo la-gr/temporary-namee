@@ -18,6 +18,7 @@
     "url": "git+https://github.com/LaraGrahek/temporaryname.git"
   },
   "dependencies": {
+    "bcryptjs": "^3.0.2",
     "express": "^4.21.2",
     "socket.io": "^4.8.1"
   }

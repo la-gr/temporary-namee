@@ -18,40 +18,31 @@
 
   <title>Login Page</title>
 
-  <script src="index.js" defer></script>
+  <script src=" https://cdn.jsdelivr.net/npm/bcryptjs@3.0.2/umd/index.min.js "></script>
+
 </head>
 <body>
-<p id = welcome>Welcome to...</p>
-<button class = 'idle' id = 'titlebtn'> GAME TITLE </button>
+<p id = "welcome">Welcome to...</p>
+<button class = 'idle' id = 'titlebtn'> COWBOYS & CATS </button>
 <div id="overlay"></div>
 <div class="container" id="container">
   <div class="sign-up">
-    <form>
+    <form id="signUpForm">
       <h1>Create Account</h1>
-      <div class="icons">
-        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-      </div>
       <span>or use username for registration</span>
       <input type="text" placeholder="Name" required />
       <input type="text" placeholder="Username" required />
       <input type="password" placeholder="Password" required />
-      <button>Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
   </div>
   <div class="sign-in">
-    <form>
+    <form id="signInForm">
       <h1>Sign In</h1>
-      <div class="icons">
-        <a href="#" class="icon"><i class="fa-brands fa-facebook"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="icon"><i class="fa-brands fa-google"></i></a>
-      </div>
       <span>or use username and password</span>
       <input type="text" placeholder="Username" required />
       <input type="password" placeholder="Password" required />
-      <button>Sign In</button>
+      <button type="submit">Sign In</button>
     </form>
   </div>
   <div class="toogle-container">
@@ -70,7 +61,14 @@
     </div>
   </div>
 </div>
-<button id="but">click me</button> <!--temporary test button to ensure that the server stuff works - can remove later -->
+<script>
+  if (typeof bcrypt === 'undefined') {
+    console.error("bcrypt.js failed to load.");
+  } else {
+    console.log("bcrypt.js loaded successfully.");
+  }
+</script>
+<script src="index.js" defer></script>
 
 </body>
 </html>
