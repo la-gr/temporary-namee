@@ -74,6 +74,7 @@ body {
 
 }
 
+
 #titlebtn:not(:disabled):hover {
     text-shadow: 1px 1px 2px #8a4335, 0 0 1em navajowhite, 0 0 0.2em gold;
     color: goldenrod;
@@ -100,6 +101,19 @@ body {
     transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+#muteButton{
+    position: absolute;
+    font-size: 30px;
+    left: 2%;
+    top: 2%;
+    background-color: transparent;
+    border: none;
+    color: goldenrod;
+    text-shadow:
+            0px 0px 10px #8a4335,
+            0px 0px 20px #8a4335,
+            0px 0px 40px #8a4335;
+}
 #container.show {
     opacity: 1;
     visibility: visible;

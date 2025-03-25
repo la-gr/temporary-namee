@@ -60,7 +60,15 @@
     </div>
     </div>
   </div>
+<button id="muteButton">Mute Music</button>
 </div>
+
+<audio id="backgroundMusic" src="resources/backgroundMusic.mp3" autoplay loop></audio>
+
+<audio id="clickSound" src="resources/clicky.mp3" preload="auto"></audio>
+<audio id="swooshSound" src="resources/swoosh.mp3" preload="auto"></audio>
+
+
 <script>
   if (typeof bcrypt === 'undefined') {
     console.error("bcrypt.js failed to load.");
@@ -69,6 +77,7 @@
   }
 </script>
 <script src="index.js" defer></script>
+
 
 </body>
 </html>
