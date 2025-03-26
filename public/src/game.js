@@ -1,5 +1,5 @@
 //game.js
-let loggedInUser = sessionStorage.getItem('loggedInUser') || "Guest";
+let loggedInUser = sessionStorage.getItem('namee', username) || "Guest";
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
 //putting all necessary html elements into variables
