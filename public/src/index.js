@@ -102,6 +102,9 @@ document.addEventListener("DOMContentLoaded", function () {
           // Save user data to localStorage
           const user = { name, password: hashedPassword };
           localStorage.setItem(username, JSON.stringify(user));
+
+          localStorage.setItem("namee", name);
+
           alert("Account created successfully! You can now sign in.");
           signUpForm.reset(); // Reset the form
         });

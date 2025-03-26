@@ -123,7 +123,6 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
       gameOver.style.display ="block";
-      // endscreen = false;
       mainG.style.display="none";
     }
     //user has not yet found all people
