@@ -26,7 +26,7 @@ if (pam === "1") {
   images = getAlienImages(); //puts the alien images into an array
 }
 
-let ppl =[images[4], images[5], images[6]] //Images of people
+let ppl =[images[10], images[11], images[12], images[13], images[14], images[15], images[16]] //Images of people
 
 let loadingScreen = document.querySelector(".loading");
 loadingScreen.style.display = "block";

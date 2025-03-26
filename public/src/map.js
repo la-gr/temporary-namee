@@ -13,6 +13,13 @@ export function getAlienImages() {
     'resources/talkTemp.mp3',
     'resources/tempSong.mp3',
     'resources/catTalkTemp.gif',
+    'resources/abducted2.png',
+    'resources/cigar1.png',
+    'resources/cigar3.png',
+    'resources/gun3.png',
+    'resources/horse4.png',
+    'resources/lasso1.png',
+    'resources/newspaper2.2.png',
   ];
 }
 
