@@ -50,10 +50,10 @@
           list-style-type: none;
           margin: 0;
           padding: 0;
-          position: relative;
-          right: 15px;
-          top: 0;
-          width: 160px;
+          position: fixed;
+          left: 5px;
+          top: 5px;
+          width: 300px;
           background-color: #ffffff;
       }
       #messages > li {
@@ -109,19 +109,25 @@
 
   <p id="money">TOTAL COINS: 0</p>
 
+<!--  <button id="logoutBtn">Logout</button>  &lt;!&ndash;  temporary logout button &ndash;&gt;-->
+
   <button id="alien"> <img src="resources/catHor.PNG" alt="cat-horse" width="239" height="218"/> </button>
   <button id="mall"> <img src="resources/catRein.PNG" alt="cat-reindeer" width="225" height="248"/> </button>
 
   <form id="form" action="">
     <input id="input" autocomplete="off" /><button id="send">Send</button>
   </form>
-
+  <ul id="messages">
+    <li>Hello!</li>
+    <li>Click the chat box</li>
+    <li>at the bottom</li>
+    <li>to enter a message.</li>
+    <li>click send to send.</li>
+  </ul>
 <!--  moveable character-->
   <div class="character">
-    <ul id="messages">
-      <li>Hello!</li>
-    </ul>
-    <img id="char" src="resources/gF.png" alt="char" width="131" height="151"/>
+
+    <div id="character" ></div>
   </div>
 </div>
 
