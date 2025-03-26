@@ -87,6 +87,15 @@
           box-shadow: 0 0 15px #330e0e;
           z-index:999;
       }
+      #musicBut{
+          position: fixed;
+          width: 80px;
+          height: 80px;
+          background: none;
+          border: none;
+          left: 320px;
+          top:5px;
+      }
 
       .character{
           width: 200px;
@@ -107,6 +116,11 @@
 <div id="mapSelect">
   <img id="bg" src="resources/mapSelBg.png" alt="mapSelect"/>
 
+  <button id="musicBut">
+    <img id="music" src="resources/musicOFF.png" alt="musicSelect" width="80px" height="80px"/>
+  </button>
+  <audio id="bgMusic" src="resources/mapSelMusic.mp3" style="display: none;" loop></audio>
+
   <p id="money">TOTAL COINS: 0</p>
 
 <!--  <button id="logoutBtn">Logout</button>  &lt;!&ndash;  temporary logout button &ndash;&gt;-->
@@ -122,7 +136,7 @@
     <li>Click the chat box</li>
     <li>at the bottom</li>
     <li>to enter a message.</li>
-    <li>click send to send.</li>
+    <li>Click send or enter to send.</li>
   </ul>
 <!--  moveable character-->
   <div class="character">

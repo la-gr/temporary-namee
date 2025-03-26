@@ -23,12 +23,12 @@ let players = {};
 io.on('connection', (socket) => {
   console.log('A user connected');
 
-  socket.on('chat message', (msg) => {
-    io.emit('chat message', msg);
+  socket.on('chat message', ({msg, colour}) => {
+    io.emit('chat message', {msg, colour});
   });
 
   socket.on('user', ({ username }) => {
-    players[username] = {username,x: 0, y: 0, image: "resources/gF.png" };
+    players[username] = {username,x: 0, y: 0, image: "resources/gF.png"};
     io.emit("update players", players);
   });
 

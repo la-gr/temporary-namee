@@ -44,6 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
     window.location.href = "index.html"; // Redirect to login if not logged in
   }
 
+  let colour = generateRandomColor();
+
+  function generateRandomColor()
+  {
+    let randomColor = '#'+Math.floor(Math.random()*16777215).toString(16);
+    if(randomColor.length !== 7){ // In any case, the color code is invalid
+      randomColor = generateRandomColor();
+    }
+    return randomColor;
+  }
 
   const form = document.getElementById('form');
   let input = document.getElementById('input');
@@ -53,7 +63,9 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     if (input.value) {
-      socket.emit('chat message', input.value);
+      let msg = input.value;
+      socket.emit('chat message', {msg, colour});
+      console.log("col:"+colour);
       input.value = '';
       input.readOnly = true;
     }
@@ -77,8 +89,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  socket.on('chat message', (msg, serverOffset) => {
+  socket.on('chat message', ({msg, colour}) => {
     const item = document.createElement('li');
+    console.log("colour: "+colour);
+    item.style.color = colour;
     item.textContent = msg; //set the item to the user's entered message
     let lis = messages.getElementsByTagName("li"); //get the list in the ul
     //only 3 messages at a time are visible
@@ -86,8 +100,8 @@ document.addEventListener("DOMContentLoaded", () => {
       messages.removeChild(lis[0]);
     }
     messages.appendChild(item); //add the message to the ul
-    window.scrollTo(0, document.messages.scrollHeight); //scrolls the messages
-    socket.auth.serverOffset = serverOffset;
+    //window.scrollTo(0, document.messages.scrollHeight); //scrolls the messages
+    //socket.auth.serverOffset = serverOffset;
   });
 
 
@@ -218,6 +232,22 @@ document.addEventListener("DOMContentLoaded", () => {
       sessionStorage.setItem("pam", "2");
       window.location.href = "game.html";
     };
+  }
+
+  let musBut = document.getElementById("musicBut");
+  let music = document.getElementById("music");
+  let bgMusic = document.getElementById("bgMusic");
+  let on = false;
+  musBut.onclick = function() {
+    if (!on){
+      music.src = "resources/musicON.png"
+      bgMusic.play();
+      on = true;
+    } else{
+      music.src = "resources/musicOFF.png"
+      bgMusic.pause();
+      on = false;
+    }
   }
 
 });
