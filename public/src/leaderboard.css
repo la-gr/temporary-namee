@@ -14,6 +14,18 @@
     opacity: 0;
     pointer-events: none;
 }
+
+#logoutBtn{
+    font-size: 30;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 999;
+    background-color: transparent;
+    border: none;
+    color: goldenrod;
+}
+
 #game-over{
     display: none;
     visibility: hidden;

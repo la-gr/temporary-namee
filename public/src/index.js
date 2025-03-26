@@ -99,6 +99,7 @@ document.addEventListener("DOMContentLoaded", function () {
       } else {
         // Hash the password before saving
         bcrypt.hash(password, 10, function (err, hashedPassword) {
+          console.log("Stored in LocalStorage:", hashedPassword);
           if (err) {
             alert("Something went wrong, please try again.");
             return;

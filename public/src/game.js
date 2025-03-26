@@ -1,5 +1,6 @@
 //game.js
-let loggedInUser = sessionStorage.getItem('loggedInUser') || "Guest";
+let loggedInUser = localStorage.getItem('namee') || "Guest";
+// let loggedInUser = localStorage.getItem(username) || "Guest";
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
 //putting all necessary html elements into variables
@@ -126,7 +127,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     if (nextMon === 0){
       sessionStorage.setItem("money", money);
       gameOver.style.display ="block";
-      mainG.style.display="none";
+      // mainG.style.display="none";
     }
     //user has not yet found all people
     else {
@@ -296,6 +297,19 @@ document.addEventListener("DOMContentLoaded", () => {
   displayScore();
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  if (logoutBtn) {
+    logoutBtn.addEventListener("click", function () {
+      localStorage.removeItem("username"); // Clear stored login
+      window.location.href = "index.html"; // Redirect to login page
+    });
+  }
+});
+
+
+//
 // document.addEventListener("DOMContentLoaded", () => {
 //   // Log the current leaderboard to check if it exists
 //   console.log("Current leaderboard data:", localStorage.getItem("leaderboard"));
