@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     item.textContent = msg; //set the item to the user's entered message
     let lis = messages.getElementsByTagName("li"); //get the list in the ul
     //only 3 messages at a time are visible
-    if (lis.length > 2) {
+    if (lis.length > 4) {
       messages.removeChild(lis[0]);
     }
     messages.appendChild(item); //add the message to the ul

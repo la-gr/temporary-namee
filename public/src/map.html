@@ -50,10 +50,10 @@
           list-style-type: none;
           margin: 0;
           padding: 0;
-          position: relative;
-          right: 15px;
-          top: 0;
-          width: 160px;
+          position: absolute;
+          left: 5px;
+          top: 5px;
+          width: 300px;
           background-color: #ffffff;
       }
       #messages > li {
@@ -117,14 +117,16 @@
   <form id="form" action="">
     <input id="input" autocomplete="off" /><button id="send">Send</button>
   </form>
-
+  <ul id="messages">
+    <li>Hello!</li>
+    <li>Click the chat box</li>
+    <li>at the bottom</li>
+    <li>to enter a message.</li>
+    <li>click send to send.</li>
+  </ul>
 <!--  moveable character-->
   <div class="character">
-    <ul id="messages">
-      <li>Hi!</li>
-      <li>Hello!</li>
-      <li>Bonjour!</li>
-    </ul>
+
     <div id="character" ></div>
   </div>
 </div>

@@ -28,7 +28,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('user', ({ username }) => {
-    players[username] = {x: 0, y: 0, image: "resources/gF.png" };
+    players[username] = {username,x: 0, y: 0, image: "resources/gF.png" };
     io.emit("update players", players);
   });
 
