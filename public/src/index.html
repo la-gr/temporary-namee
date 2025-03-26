@@ -16,7 +16,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&family=Mansalva&display=swap" rel="stylesheet">
 
-  <title>Login Page</title>
+  <title>Cowboys & Cats</title>
 
   <script src=" https://cdn.jsdelivr.net/npm/bcryptjs@3.0.2/umd/index.min.js "></script>
 
@@ -24,6 +24,7 @@
 <body>
 <p id = "welcome">Welcome to...</p>
 <button class = 'idle' id = 'titlebtn'> COWBOYS & CATS </button>
+<button id="muteButton">Mute Music</button>
 <div id="overlay"></div>
 <div class="container" id="container">
   <div class="sign-up">
@@ -60,10 +61,9 @@
     </div>
     </div>
   </div>
-<button id="muteButton">Mute Music</button>
 </div>
 
-<audio id="backgroundMusic" src="resources/backgroundMusic.mp3" autoplay loop></audio>
+<audio id="backgroundMusic" src="resources/loginBg.mp3" autoplay loop></audio>
 
 <audio id="clickSound" src="resources/clicky.mp3" preload="auto"></audio>
 <audio id="swooshSound" src="resources/swoosh.mp3" preload="auto"></audio>
