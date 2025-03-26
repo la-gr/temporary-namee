@@ -44,23 +44,25 @@
       #cowboy{
           position: fixed;
           z-index: 1;
-          width: 600px;
+          width: 850px;
           height: 200px;
-          background-color: white;
+          background-color: #ffffff;
           top: 70%;
-          left: 400px;
+          left: 300px;
       }
-      #text{
+      .text{
           position: absolute;
           top: 10px;
-          left: 250px;
+          left: 240px;
           font-family: "Mansalva", sans-serif;
           font-weight: 400;
+          border-bottom: 5px;
           font-style: normal;
       }
       #catTalk{
           position: absolute;
-          top: 30px;
+          top: 40px;
+          left: 30px
       }
       #ok{
           position: absolute;
@@ -163,7 +165,12 @@
   <p id="coins">Coins: 0</p>
   <div id="cowboy">
     <img id="catTalk" src = "resources/catTalkTemp.gif" alt="catTalk" width="200" height="100">
-    <p id="text">hello this is how you play the game blah blah blah wow so cool</p>
+    <ul class="text">
+      <li>HOWDY PARTNER!</li>
+      <li>Find the criminals that show up in the wanted poster in the top left!</li>
+      <li>Click on the criminals to capture them!</li>
+      <li>Find as many as possible in 5 minutes!</li>
+    </ul>
     <button id="ok">OK</button>
   </div>
 </div>

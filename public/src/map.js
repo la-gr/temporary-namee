@@ -10,7 +10,7 @@ export function getAlienImages() {
     'resources/preson.png',
     'resources/ppl2.png',
     'resources/ppl3.png',
-    'resources/talkTemp.mp3',
+    'resources/cowCatTalk.mp3',
     'resources/tempSong.mp3',
     'resources/catTalkTemp.gif',
     'resources/abducted2.png',

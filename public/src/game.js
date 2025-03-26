@@ -118,6 +118,9 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.style.position = "absolute";
   button.style.left = l;
   button.style.top = t;
+  button.style.background = "none";
+  button.style.border="none";
+  button.style.outline = "none";
   button.onclick= function() {
     //the user has found all people
     if (nextMon === 0){
@@ -127,10 +130,13 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     }
     //user has not yet found all people
     else {
-      pplSelect(a, nextMon);
       if(n===a) {
+        console.log(n);
+        console.log(a);
+        console.log("equal");
         money += mon; //add the money earned from finding the person to the total money earned
         coins.innerHTML = "Coins: " + money;
+        pplSelect(a, nextMon);
       }
     }
   }
