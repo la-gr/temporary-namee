@@ -1,5 +1,5 @@
 //game.js
-
+let loggedInUser = sessionStorage.getItem('loggedInUser') || "Guest";
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
 //putting all necessary html elements into variables
@@ -223,25 +223,24 @@ makePpl(2, 20, 50, "700px", "200px", 6, 0);
 
 
 //LEADERBOARD STUFF
-//display blur
-
 //display score
 function displayScore() {
-  let score = money;
+  let score = parseInt(sessionStorage.getItem("money")) || 0;
   document.getElementById('score').innerHTML = score;
 }
 
-//array of data stored
-let data = [
-  {name:"bob", score:10, date:""},
-  {name:"jim", score:100, date:""},
-  {name:"joe", score:0, date:""},
-];
+//load leaderboard from localStorage
+let data = JSON.parse(localStorage.getItem("leaderboard")) || [];
 
 //display leaderboard
 function displayLeaderboard() {
   const leaderboard = document.getElementById('leaderboard');
   leaderboard.innerHTML = ''; //clears the previous content in table
+
+  //add loggedInUser's data in the leaderboard
+  let score = parseInt(sessionStorage.getItem("money")) || 0;
+  const currentDate = new Date().toLocaleDateString();
+  data.push({ name: loggedInUser, score: score, date: currentDate });
 
   //sort data to be displayed highest score to lowest
   data
@@ -252,8 +251,14 @@ function displayLeaderboard() {
         return b.score - a.score; //sort by score in descending order
     });
 
+  //save updated leaderboard to localStorage
+  localStorage.setItem("leaderboard", JSON.stringify(data));
+
+  // Display only the top 5 entries
+  const top5 = data.slice(0, 5); // Get the first 5 entries
+
   //display the data in the leaderboard
-  data.forEach((data, index) => {
+  top5.forEach((data, index) => {
     let row = `<tr>
         <td>${index + 1}</td>
         <td>${data.name}</td>
@@ -278,5 +283,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-displayLeaderboard();
-displayScore();
+document.addEventListener("DOMContentLoaded", () => {
+  displayLeaderboard();
+  displayScore();
+});
+
+// document.addEventListener("DOMContentLoaded", () => {
+//   // Log the current leaderboard to check if it exists
+//   console.log("Current leaderboard data:", localStorage.getItem("leaderboard"));
+//
+//   // Remove the leaderboard from localStorage
+//   localStorage.removeItem("leaderboard");
+//
+//   // Verify that it has been cleared
+//   console.log("Leaderboard after removal:", localStorage.getItem("leaderboard")); // Should return null
+//
+//   });
