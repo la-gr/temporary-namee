@@ -1,5 +1,5 @@
 //game.js
-let loggedInUser = sessionStorage.getItem('namee', username) || "Guest";
+let loggedInUser = sessionStorage.getItem('loggedInUser') || "Guest";
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
 //putting all necessary html elements into variables
@@ -17,7 +17,7 @@ let bg = document.getElementById("bg");
 let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
 let gameOver = document.getElementById("game-over");
-// let endscreen = true;
+bg.disabled=true;
 
 let images = [];
 import { getAlienImages } from "./map.js";
@@ -128,8 +128,10 @@ function makePpl(a, w, h, l, t, mon, nextMon){
     //user has not yet found all people
     else {
       pplSelect(a, nextMon);
-      money += mon; //add the money earned from finding the person to the total money earned
-      coins.innerHTML = "Coins: "+money;
+      if(n===a) {
+        money += mon; //add the money earned from finding the person to the total money earned
+        coins.innerHTML = "Coins: " + money;
+      }
     }
   }
   //create image of a person
@@ -138,6 +140,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   image.alt = "person";
   image.width = w;
   image.height = h;
+  image.style.background = "transparent";
   button.appendChild(image); //add image to button
   div.appendChild(button); //add button to the div
 }

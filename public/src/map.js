@@ -4,7 +4,7 @@
 export function getAlienImages() {
   return [
     'resources/timerBg.png',
-    'resources/bgEx.png',
+    'resources/mapBg.jpg',
     'resources/wantedPoster.png',
     'resources/confBg.gif',
     'resources/preson.png',
