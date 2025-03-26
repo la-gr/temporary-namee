@@ -33,6 +33,11 @@ window.addEventListener('load', function() {
 document.addEventListener("DOMContentLoaded", () => {
   const socket = io();
 
+  if (!localStorage.getItem("loggedInUser")) {
+    window.location.href = "index.html"; // Redirect to login if not logged in
+  }
+
+
   const form = document.getElementById('form');
   let input = document.getElementById('input');
   input.readOnly = true;
@@ -170,5 +175,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   });
+
+  const logoutBtn = document.getElementById("logoutBtn");
+
+  // if (logoutBtn) {
+  //   logoutBtn.addEventListener("click", function () {
+  //     localStorage.removeItem("loggedInUser"); // Remove user session
+  //     window.location.href = "index.html"; // Redirect to login page
+  //   });
+  // }
+
 });
 

@@ -11,10 +11,28 @@ document.addEventListener("DOMContentLoaded", function () {
   const titlebtn = document.getElementById("titlebtn");
   const welcomemsg = document.getElementById("welcome");
   const overlay = document.getElementById("overlay");
+  const clickSound = document.getElementById("clickSound");
+  const swooshSound = document.getElementById("swooshSound");
+
+  const backgroundMusic = document.getElementById("backgroundMusic");
+  const muteButton = document.getElementById("muteButton");
+
+  // Function to toggle mute
+  muteButton.addEventListener("click", () => {
+    // Toggle the muted state of the audio
+    if (backgroundMusic.muted) {
+      backgroundMusic.muted = false;
+      muteButton.textContent = "Mute Music"; // Change button text to "Mute Music"
+    } else {
+      backgroundMusic.muted = true;
+      muteButton.textContent = "Unmute Music"; // Change button text to "Unmute Music"
+    }
+  });
 
   // Button event listeners
   registerbtn.addEventListener("click", () => {
     container.classList.add("active");
+    clickSound.play();
   });
 
   loginbtn.addEventListener("click", () => {
@@ -26,9 +44,26 @@ document.addEventListener("DOMContentLoaded", function () {
     titlebtn.classList.add("active");
     titlebtn.disabled = true; // Make the button unclickable
 
+
     container.classList.add("show");
     welcomemsg.classList.add("hide");
     overlay.style.display = "block";
+  });
+
+  const buttons = document.querySelectorAll("button");
+
+  // Add event listener to all buttons
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      // Play click sound when button is clicked
+      clickSound.currentTime = 0; // Reset the sound to the beginning
+      clickSound.play(); // Play the click sound
+    });
+  });
+
+  container.addEventListener("transitionstart", () => {
+    swooshSound.currentTime = 0; // Reset to the start of the sound
+    swooshSound.play(); // Play the swoosh sound
   });
 
   // Handle Sign-Up form
@@ -107,6 +142,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (result) {
             alert(`Welcome, ${storedUser.name}!`);
             localStorage.setItem("loggedInUser", storedUser.username);
+            localStorage.setItem("loggedInUser", "username"); // Store username
+
             window.location.href = "/map";
             // Redirect to the game page or do something else after successful login
           } else {
