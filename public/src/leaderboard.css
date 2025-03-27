@@ -16,14 +16,24 @@
 }
 
 #logoutBtn{
-    font-size: 30;
+    justify-content: center;
+    align-items: center;
+    font-size: 30px;
     position: absolute;
-    top: 5px;
-    left: 5px;
+    top: 10%;
+    left: 34%;
     z-index: 999;
     background-color: transparent;
     border: none;
+    color: black;
+}
+
+#logoutBtn:hover {
+    text-shadow: 1px 1px 2px #8a4335, 0 0 1em navajowhite, 0 0 0.2em gold;
     color: goldenrod;
+    transition: transform 250ms linear;
+    transform: translateY(-3px);
+
 }
 
 #game-over{
