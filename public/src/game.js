@@ -125,6 +125,11 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.style.outline = "none";
   button.onclick= function() {
     //the user has found all people
+    const ough = document.getElementById("ough");
+
+    ough.currentTime = 0; // Restart sound if clicked rapidly
+    ough.play();
+
     if (nextMon === 0){
       money += mon;
       coins.innerHTML = "Coins: " + money;

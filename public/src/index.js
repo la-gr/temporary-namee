@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const titlebtn = document.getElementById("titlebtn");
   const welcomemsg = document.getElementById("welcome");
   const overlay = document.getElementById("overlay");
-  const clickSound = document.getElementById("clickSound");
+  const meow = document.getElementById("meow");
   const swooshSound = document.getElementById("swooshSound");
 
   const backgroundMusic = document.getElementById("backgroundMusic");
@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Button event listeners
   registerbtn.addEventListener("click", () => {
     container.classList.add("active");
-    clickSound.play();
+    meow.play();
   });
 
   loginbtn.addEventListener("click", () => {
@@ -56,8 +56,8 @@ document.addEventListener("DOMContentLoaded", function () {
   buttons.forEach(button => {
     button.addEventListener("click", () => {
       // Play click sound when button is clicked
-      clickSound.currentTime = 0; // Reset the sound to the beginning
-      clickSound.play(); // Play the click sound
+      meow.currentTime = 0; // Reset the sound to the beginning
+      meow.play(); // Play the click sound
     });
   });
 
