@@ -18,10 +18,10 @@
 #logoutBtn{
     justify-content: center;
     align-items: center;
-    font-size: 30px;
+    font-size: 20px;
     position: absolute;
-    top: 10%;
-    left: 34%;
+    top: 1%;
+    left: 1%;
     z-index: 999;
     background-color: transparent;
     border: none;
