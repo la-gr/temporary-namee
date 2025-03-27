@@ -96,7 +96,8 @@ backBut.addEventListener("click", () => {
 ok.addEventListener("click", () => {
   cowboy.style.display="none"; //the block of the cowboy+text disappears
   talk.pause(); //stops the talking
-  //starts timer and ets bg become draggable
+  //starts timer and sets bg become draggable
+  bg.disabled = false;
   timer(5,0o00);
   dragElement(document.getElementById("bg"));
 })
