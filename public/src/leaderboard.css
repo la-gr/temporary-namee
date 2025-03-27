@@ -130,6 +130,11 @@
     cursor: pointer;
 }
 
+.button:hover{
+    filter: brightness(95%);
+    /*box-shadow: 0 5px 20px #946b54*/
+;}
+
 button#menu{
     width: 151px;
     height: 114px;
@@ -159,8 +164,8 @@ table{
 }
 
 td {
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 
 th {

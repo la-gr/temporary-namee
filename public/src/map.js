@@ -14,7 +14,7 @@ export function getAlienImages() {
     'resources/tempSong.mp3',
     'resources/catTalkTemp.gif',
     'resources/abducted2.png',
-    'resources/cigar1.png',
+    'resources/cigar2.png',
     'resources/cigar3.png',
     'resources/gun3.png',
     'resources/horse4.png',

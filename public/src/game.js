@@ -1,6 +1,5 @@
 //game.js
-let loggedInUser = localStorage.getItem('namee') || "Guest";
-// let loggedInUser = localStorage.getItem(username) || "Guest";
+let loggedInUser = localStorage.getItem("namee") || "Guest";
 let n = 0; //used to make sure the user can only click on the correct person
 let money = 0; //amount of money the user has earned this round
 //putting all necessary html elements into variables
@@ -19,6 +18,8 @@ let poster = document.getElementById("poster");
 let catTalk = document.getElementById("catTalk");
 let gameOver = document.getElementById("game-over");
 bg.disabled=true;
+
+console.log(loggedInUser);
 
 let images = [];
 import { getAlienImages } from "./map.js";
@@ -125,6 +126,8 @@ function makePpl(a, w, h, l, t, mon, nextMon){
   button.onclick= function() {
     //the user has found all people
     if (nextMon === 0){
+      money += mon;
+      coins.innerHTML = "Coins: " + money;
       sessionStorage.setItem("money", money);
       gameOver.style.display ="block";
       // mainG.style.display="none";
@@ -136,6 +139,7 @@ function makePpl(a, w, h, l, t, mon, nextMon){
         console.log(a);
         console.log("equal");
         money += mon; //add the money earned from finding the person to the total money earned
+        console.log(money);
         coins.innerHTML = "Coins: " + money;
         pplSelect(a, nextMon);
       }
@@ -166,15 +170,13 @@ function timer(m,s){
     if (sec < 0 && min<0) {
       clearInterval(timer);
       sessionStorage.setItem("money", money);
+      console.log(money);
       gameOver.style.display = "block";
-      mainG.style.display = "none";
+      // mainG.style.display = "none";
     } else if (sec < 0){
       sec = 59;
       min--;
     }
-    // if (!endscreen){
-    //   break ;
-    // }
   }, 1000); //loops every 1 second
 }
 
@@ -226,16 +228,20 @@ function dragElement(elmnt) {
 }
 
 //make the people to show up on screen
-makePpl(0, 20, 50, "500px", "400px", 2, 4);
-makePpl(1, 20, 50, "800px", "300px", 4, 6);
-makePpl(2, 20, 50, "700px", "200px", 6, 0);
+makePpl(0, 91, 90, "1105px", "480px", 2, 4);
+makePpl(1, 48, 101, "2680px", "575px", 4, 6);
+makePpl(2, 48, 101, "1497px", "576px", 6, 8);
+makePpl(3, 101, 101, "1776px", "1484px", 8, 10);
+makePpl(4,110,111,"1880px", "631px", 10, 12);
+makePpl(5, 65,144,"635px", "706px", 12, 14);
+makePpl(6, 66, 104, "1200px", "1542px", 14, 0);
 
 
 //LEADERBOARD STUFF
 //display score
 function displayScore() {
-  let score = parseInt(sessionStorage.getItem("money")) || 0;
-  document.getElementById('score').innerHTML = score;
+  // let score = parseInt(sessionStorage.getItem("money")) || 0;
+  document.getElementById('score').innerHTML = sessionStorage.getItem("money");
 }
 
 //load leaderboard from localStorage
@@ -309,7 +315,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
-//
+
 // document.addEventListener("DOMContentLoaded", () => {
 //   // Log the current leaderboard to check if it exists
 //   console.log("Current leaderboard data:", localStorage.getItem("leaderboard"));
